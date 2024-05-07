@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Your Travel Hub</title>
+    <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .navbar{
+            background-color: white !important;
+            color: black !important;
+        }
+        .navbar .nav-link{
+            color: black !important;
+        }
+        .navbar .navbar-toggler-icon{
+            color: black !important;
+        }
+        .navbar-brand{
+            color: black !important;
+        }
+        .card {
+            height: 100%;
+        }
+        .card-img-top {
+            height: 200px; /* Set a fixed height for the images */
+            object-fit: cover; /* Ensure the image covers the entire space */
+        }
+        .card-hover {
+            transition: transform 0.3s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+        }
+        .row{
+            margin: 30px;
+        }
+        .card-text b {
+            color: #007bff; /* Bold text color */
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            height: 7cm;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> Travel Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Attractions & Tours.html">Attractions & Tours</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown link
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="flight.html">Flights</a></li>
+                            <li><a class="dropdown-item" href="hotel.html">Hotels</a></li>
+                            <li><a class="dropdown-item" href="cars.html">Car Rentals</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right" style="list-style-type: none; display: flex; align-items: center;">
+                <li>
+                    <a href="#" style="color: black; text-decoration: none; font-size: medium; display: flex; align-items: center;">
+                        <i class="fas fa-user-circle" style="margin-right: 5px;"> Login</i>
+                        <i class="fas fa-sign-out-alt" style="margin-left: 15px;"> SignUp</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="top-attractions-section">
+        <div class="container">
+            <h2 style="text-align: center; margin: 40px;">Top Attraction Tours</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/1tour.jpg" class="card-img-top" alt="Attraction 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Hong Kong Disneyland</h5>
+                            <p class="card-text"><br> <b>Rating:</b> 4.7 / 5 <br> <b>Reviews:</b> 37,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/tour2.jpg" class="card-img-top" alt="Attraction 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Ocean Park Hong Kong</h5>
+                            <p class="card-text"> <br> <b>Rating:</b> 4.5 / 5 <br> <b>Reviews:</b> 29,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/tour3.jpg" class="card-img-top" alt="Attraction 3">
+                        <div class="card-body">
+                            <h5 class="card-title">The Peak</h5>
+                            <p class="card-text"> <br> <b>Rating:</b> 4.8 / 5 <br> <b>Reviews:</b> 42,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/tour4.jpg" class="card-img-top" alt="Attraction 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Tsim Sha Tsui</h5>
+                            <p class="card-text"> <br> <b>Rating:</b> 4.6 / 5 <br> <b>Reviews:</b> 35,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/tour5.jpg" class="card-img-top" alt="Attraction 5">
+                        <div class="card-body">
+                            <h5 class="card-title">Hong Kong Place Museum</h5>
+                            <p class="card-text"> <br> <b>Rating:</b> 4.4 / 5 <br> <b>Reviews:</b> 31,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/tour6.jpg" class="card-img-top" alt="Attraction 6">
+                        <div class="card-body">
+                            <h5 class="card-title">Lantau Island</h5>
+                            <p class="card-text"> <br> <b>Rating:</b> 4.9 / 5 <br> <b>Reviews:</b> 49,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/tour7.jpg" class="card-img-top" alt="Attraction 7">
+                        <div class="card-body">
+                            <h5 class="card-title">Ngong Ping 360</h5>
+                            <p class="card-text"> <br> <b>Rating:</b> 4.7 / 5 <br> <b>Reviews:</b> 38,000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card card-hover">
+                        <img src="assets/tour8.jpg" class="card-img-top" alt="Attraction 8">
+                        <div class="card-body">
+                            <h5 class="card-title">Victoria Harbour</h5>
+                            <p class="card-text"> <br> <b>Rating:</b> 4.6 / 5 <br> <b>Reviews:</b> 36,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section>
+            <section class="top-attractions-section">
+                <div class="container">
+                    <h2 style="text-align: center; margin: 30px;">Unique Experiences</h2>
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-hover">
+                                <img src="assets/unique1.jpg" class="unique-img-top" alt="Attraction 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Best View of Symphony of Lights- Drinks & Snacks Package at HUE Dining , Seaview Restaurant in Tsim Sha Tsui</h5>
+                                    <p><strong style="color: #007bff;">Rating:</strong> 4.5 / 5</p>
+                                    <p><strong style="color: #007bff;">Reviews:</strong> 1200</p>
+                                    <p><strong style="color: #007bff;">Price:</strong> $150</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-hover">
+                                <img src="assets/unique2.jpg" class="unique-img-top" alt="Attraction 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Harvest Restaurant, Noah's Ark Hotel & Resort - Dining/Buffet/Chill & Grill Seaview BBQ Feast</h5>
+                                    <p><strong style="color: #007bff;">Rating:</strong> 4.2 / 5</p>
+                                    <p><strong style="color: #007bff;">Reviews:</strong> 950</p>
+                                    <p><strong style="color: #007bff;">Price:</strong> $280</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-hover">
+                                <img src="assets/unique3.jpg" class="unique-img-top" alt="Attraction 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Harbour Grand Café @Harbour Grand Hong Kong - Lunch/Dinner & Festive Buffet (Up to 20% off)</h5>
+                                    <p><strong style="color: #007bff;">Rating:</strong> 4.7 / 5</p>
+                                    <p><strong style="color: #007bff;">Reviews:</strong> 800</p>
+                                    <p><strong style="color: #007bff;">Price:</strong> $365</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card card-hover">
+                                <img src="assets/unique4.jpg" class="unique-img-top" alt="Attraction 4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Hong Kong Victoria Harbor "Wing On" cruise ticket</h5>
+                                    <p><strong style="color: #007bff;">Rating:</strong> 4.6 / 5</p>
+                                    <p><strong style="color: #007bff;">Reviews:</strong> 1050</p>
+                                    <p><strong style="color: #007bff;">Price:</strong> $175</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+<!-- Add this modal HTML after the footer section -->
+
+<!-- Add this modal HTML after the footer section -->
+<div class="modal fade" id="attractionModal" tabindex="-1" aria-labelledby="attractionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="attractionModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="attractionModalBody">
+                <!-- Content will be dynamically populated -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript (with jQuery) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+<script>
+    var attractions = [
+        {
+            name: "Hong Kong Disneyland",
+            description: "Hong Kong Disneyland is a theme park located on reclaimed land in Penny's Bay, Lantau Island, Hong Kong. It was the first Disneyland in Asia outside of Japan until Shanghai Disneyland in 2016.",
+            rating: 4.7,
+            reviews: 37000,
+            price: 150
+            
+        },
+        {
+            name: "Ocean Park Hong Kong",
+            description: "Ocean Park Hong Kong, commonly known as Ocean Park, is a marine mammal park, oceanarium, animal theme park and amusement park situated in Wong Chuk Hang and Nam Long Shan in the Southern District of Hong Kong",
+            rating: 4.5,
+            reviews: 29000,
+            price: 200
+        },
+        {
+            name: "The Peak",
+            description: "Victoria Peak (Tai Ping Shan), also known locally as The Peak and located in HongKong.. The views are just spectacular especially during sunset. This is one of the world's most iconic views and is a must see on any visit to Hong Kong. ",
+            rating: 4.8,
+            reviews: 42000,
+            price: 180
+        },
+        {
+            name: "Tsim Sha Tsui",
+            description: "This is the area where you can stroll along Nathan Road to enjoy high end shopping, visit peaceful Kowloon Park and walk along the Avenue of Stars to view the majestic HK skyline.",
+            rating: 4.6,
+            reviews: 35000,
+            price: 170
+        },
+        {
+            name: "Hong Kong Place Museum",
+            description: "The Hong Kong Palace Museum is a public museum in the West Kowloon Cultural District. If you like Hong Kong’s history, you must visit here.",
+            rating: 4.4,
+            reviews: 31000,
+            price: 190
+        },
+        {
+            name: "Lantau Island",
+            description: "The cable car across the mountains and the sea 🚠 has a great view! The drive is quite long and very enjoyable. It takes 40 minutes to queue up for non-holidays. .",
+            rating: 4.9,
+            reviews: 49000,
+            price: 220
+        },
+        {
+            name: "Ngong Ping 360",
+            description: "Hong Kong is a place worth visiting. Unfortunately, it was too late to go to Tai O Fishing Village. It is a pity that I have the opportunity to go again to make up for this regret. I recommend Ngong Ping 360.",
+            rating: 4.7,
+            reviews: 38000,
+            price: 160
+        },
+        {
+            name: "Victoria Harbour",
+            description: "The light show is too general, the night view of Victoria Harbour is still worth seeing, the ticket bought is more swaying, not very good, the attitude of the service staff for the wine is also general, if you are dizzy,",
+            rating: 4.6,
+            reviews: 36000,
+            price: 210
+        },
+    ];
+
+    var uniqueExperiences = [
+        {
+            name: "Best View of Symphony of Lights- Drinks & Snacks Package at HUE Dining, Seaview Restaurant in Tsim Sha Tsui",
+            description: "HUE Dining is located at Hong Kong Museum of Art, just on the edge of Victoria Harbour in Tsim Sha Tsui, adjacent to the Cultural Center. The award-wining Hue Dining, design and art share the limelight with the venue's Modern Australian cuisine, which is driven by the best produce and inspired by the multi-cultural make-up of the land down under, with flavours and influences from four corners of the world.",
+            rating: 4.5,
+            reviews: 1200,
+            price: 150
+        },
+        {
+            name: "Harvest Restaurant, Noah's Ark Hotel & Resort - Dining/Buffet/Chill & Grill Seaview BBQ Feast",
+            description: "Indulge in a seaside feast at Arvest Restaurant, Noah's Ark Hotel & Resort, where dining meets relaxation with a tantalizing BBQ buffet overlooking the serene seascape.",
+            rating: 4.2,
+            reviews: 950,
+            price: 280
+        },
+        {
+            name: "Harbour Grand Café @Harbour Grand Hong Kong - Lunch/Dinner & Festive Buffet (Up to 20% off)",
+            description: "Savor the flavors of both lunch and dinner at Harbour Grand Café, Harbour Grand Hong Kong, where a festive buffet awaits. Enjoy up to 20% off as you dine amidst a culinary celebration of delectable dishes and festive delights",
+            rating: 4.7,
+            reviews: 800,
+            price: 365
+        },
+        {
+            name: "Hong Kong Victoria Harbor 'Wing On' cruise ticket",
+            description:"Sail through Hong Kong's Victoria Harbour aboard the 'Wing On' cruise for panoramic views of the city's skyline and landmarks. Experience the essence of the city's charm on this memorable voyage.",
+            rating: 4.6,
+            reviews: 1050,
+            price: 175
+        },
+    ];
+
+    $(document).ready(function() {
+    $('.card-img-top').click(function() {
+        var index = $(this).parents('.col-md-3').index(); // Get the index of the clicked image
+        var name = attractions[index].name;
+        var description = attractions[index].description;
+        var rating = attractions[index].rating;
+        var reviews = attractions[index].reviews;
+        var price = attractions[index].price;
+
+        // Update modal content
+        $('#attractionModalLabel').text(name);
+        $('#attractionModalBody').html(`
+            <p>Description: ${description}</p>
+            <p>Rating: ${rating}</p>
+            <p>Reviews: ${reviews}</p>
+            <p>Price: $${price}</p>
+            <button type="button" class="btn btn-primary" id="bookNowBtn">Book Now</button>
+        `);
+
+        // Show the modal
+        $('#attractionModal').modal('show');
+    });
+
+    $('.unique-img-top').click(function() {
+        var index = $(this).parents('.col-md-3').index(); // Get the index of the clicked image
+        var name = uniqueExperiences[index].name;
+        var description = uniqueExperiences[index].description;
+        var rating = uniqueExperiences[index].rating;
+        var reviews = uniqueExperiences[index].reviews;
+        var price = uniqueExperiences[index].price;
+
+        // Update modal content
+        $('#attractionModalLabel').text(name);
+        $('#attractionModalBody').html(`
+            <p>Description: ${description}</p>
+            <p>Rating: ${rating}</p>
+            <p>Reviews: ${reviews}</p>
+            <p>Price: $${price}</p>
+            <button type="button" class="btn btn-primary" id="bookNowBtn">Book Now</button>
+        `);
+
+        // Show the modal
+        $('#attractionModal').modal('show');
+    });
+
+    // Add click event for the dynamically generated "Book Now" button
+ // Add click event for the dynamically generated "Book Now" button
+$(document).on('click', '#bookNowBtn', function() {
+    // Get the price of the attraction
+    var price = $(this).siblings('p').filter(':contains("Price:")').text().trim().split('$')[1];
+    
+    // Store the price in session storage
+    sessionStorage.setItem('selectedAttractionPrice', price);
+    
+    // Redirect to the booking page
+    window.location.href = "booking-page.html";
+});
+
+});
+</script>
+
+
+</body>
+</html>
+
