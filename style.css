@@ -73,7 +73,6 @@
     color: black; /* Set text color to black for better readability */
 }
 
-
 .box-1 {
     height: 450px;
     margin-left: 10%;
@@ -85,7 +84,7 @@
     flex: 1;
     }
 @media (max-width:400px) {
-    .container{
+    .container1{
         flex-direction: column;
     }
 }
@@ -99,7 +98,7 @@
 }
 
 .container-fluid{
-    font-size: large;
+    font-size: large !important;
 }
 
 /* Some basic styling */

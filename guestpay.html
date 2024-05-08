@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-                .navbar{
+        .navbar{
             background-color: white !important;
             color: black !important;
         }
@@ -72,6 +72,7 @@
     </style>
 </head>
 <body>
+    <section class="bleu-section">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">Travel Hub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,11 +89,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Attractions & Tours.html">Attractions & Tours</a>
                     </li>
-                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown link
-                        </a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="flight.html">flights</a></li>
                             <li><a class="dropdown-item" href="hotel.html">hotels</a></li>
@@ -111,9 +109,10 @@
             </ul>
         </div>
     </nav>
+    </section>
     <div class="container">
         <h2>Guest House Booking</h2>
-        <form action="booking_handler.php" method="post">
+        <form action="#" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>

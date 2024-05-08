@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Hub - Hotels</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.fontawesome.com/releases/v6.0.0-beta1/js/all.js" integrity="sha384-X3IEo5PLmJXYVMSUNA2Kzwcgk7uHkGdavBv34rDaklZo+nDXZIveE6PWNKdYgj7r" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
     <style>
-       
       .bleu-section {
         background-color: white !important;
         height: 60px; /* Adjust as needed */
@@ -100,12 +97,10 @@
       #results {
         margin-top: 20px;
       }
-
       /* Centering the form */
       .form-group {
         margin-bottom: 15px;
       }
-
       .btn {
         margin-top: 20px;
       }
@@ -155,90 +150,47 @@
                     </li>
                 </ul>
         </nav>
-</section>
+    </section>
         <section>
         <div>
           <img src="assets/HOTEL.jpg" alt="hotel" class="image1" />
           <div class="text">Find the right hotel today</div>
         </div>
       </section>
-
       <section class="search-form">
         <div class="container2">
           <h2 style="text-align: center; color: black">Hotel Booking</h2>
           <div id="searchSection">
             <form id="searchForm">
               <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="destination"
-                  placeholder="Destination"
-                  required
-                />
+                <input type="text" class="form-control" id="destination" placeholder="Destination" required/>
               </div>
               <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="checkInDate"
-                  placeholder="Check-in Date"
-                  required
-                />
+                <input type="text" class="form-control" id="checkInDate" placeholder="Check-in Date" required/>
               </div>
               <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="checkOutDate"
-                  placeholder="Check-out Date"
-                  required
-                />
+                <input type="text" class="form-control" id="checkOutDate" placeholder="Check-out Date" required/>
               </div>
               <div class="form-group">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="guests"
-                  placeholder="Number of guests"
-                  required
-                />
+                <input type="number" class="form-control" id="guests" placeholder="Number of guests" required/>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="priceRangeMin"
-                    placeholder="Min price (optional)"
-                  />
+                  <input type="number" class="form-control" id="priceRangeMin" placeholder="Min price (optional)"/>
                 </div>
                 <div class="form-group col-md-6">
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="priceRangeMax"
-                    placeholder="Max price (optional)"
-                  />
+                  <input type="number" class="form-control" id="priceRangeMax" placeholder="Max price (optional)"/>
                 </div>
               </div>
               <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="amenities"
-                  placeholder="Amenities (optional)"
-                />
+                <input type="text" class="form-control" id="amenities" placeholder="Amenities (optional)"/>
               </div>
-              <button type="submit" class="btn btn-primary btn-block">
-                Search
-              </button>
+              <button type="submit" class="btn btn-primary btn-block">Search</button>
             </form>
           </div>
           <div id="results" style="display: none"></div>
         </div>
       </section>
-
       <section class="hotels-section">
         <div class="container">
           <h2 style="color: black; text-align: center; margin: 50px">Hotels</h2>
@@ -246,135 +198,78 @@
             <!-- Hotel Card 1 -->
             <div class="col-md-4">
               <div class="card hotel-card">
-                <img
-                  src="assets/hotel1.jpg"
-                  class="card-img-top hotel-img"
-                  alt="Hotel 1"
-                />
+                <img src="assets/hotel1.jpg" class="card-img-top hotel-img" alt="Hotel 1"/>
                 <div class="card-body hotel-info">
                   <h5 class="card-title hotel-title">Sea Breeze Resort</h5>
-                  <p class="card-text hotel-description">
-                    A cozy beachfront retreat with stunning ocean views.
-                  </p>
+                  <p class="card-text hotel-description"> A cozy beachfront retreat with stunning ocean views.</p>
                   <p class="hotel-price">$150/night</p>
                   <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=150" class="btn btn-primary"
-                    >Book Now</a
-                  >
+                  <a href="Hotel Booking.html?price=150" class="btn btn-primary">Book Now</a>
                 </div>
               </div>
             </div>
             <!-- Hotel Card 2 -->
             <div class="col-md-4">
               <div class="card hotel-card">
-                <img
-                  src="assets/hotel2.jpg"
-                  class="card-img-top hotel-img"
-                  alt="Hotel 2"
-                />
+                <img src="assets/hotel2.jpg" class="card-img-top hotel-img" alt="Hotel 2"/>
                 <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title">
-                    City Lights Hotel & Spa
-                  </h5>
-                  <p class="card-text hotel-description">
-                    A luxurious urban escape in the heart of the city with
-                    panoramic skyline views.
-                  </p>
+                  <h5 class="card-title hotel-title"> City Lights Hotel & Spa</h5>
+                  <p class="card-text hotel-description"> A luxurious urban escape in the heart of the city with panoramic skyline views.</p>
                   <p class="hotel-price">$250/night</p>
                   <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=250" class="btn btn-primary"
-                    >Book Now</a
-                  >
+                  <a href="Hotel Booking.html?price=250" class="btn btn-primary">Book Now</a>
                 </div>
               </div>
             </div>
             <!-- Hotel Card 3 -->
             <div class="col-md-4">
               <div class="card hotel-card">
-                <img
-                  src="assets/hotel3.jpg"
-                  class="card-img-top hotel-img"
-                  alt="Hotel 3"
-                />
+                <img src="assets/hotel3.jpg" class="card-img-top hotel-img" alt="Hotel 3"/>
                 <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title">
-                    Bellagio Hotel & Casino
-                  </h5>
-                  <p class="card-text hotel-description">
-                    Bellagio Las Vegas, enjoy a high caliber resort experience
-                    right on the Las Vegas .
-                  </p>
+                  <h5 class="card-title hotel-title">Bellagio Hotel & Casino</h5>
+                  <p class="card-text hotel-description">Bellagio Las Vegas, enjoy a high caliber resort experience right on the Las Vegas .</p>
                   <p class="hotel-price">$100/night</p>
                   <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=100" class="btn btn-primary"
-                    >Book Now</a
-                  >
+                  <a href="Hotel Booking.html?price=100" class="btn btn-primary">Book Now</a>
                 </div>
               </div>
             </div>
             <!-- Hotel Card 4 -->
             <div class="col-md-4">
               <div class="card hotel-card">
-                <img
-                  src="assets/hotel4.jpg"
-                  class="card-img-top hotel-img"
-                  alt="Hotel 4"
-                />
+                <img src="assets/hotel4.jpg" class="card-img-top hotel-img" alt="Hotel 4"/>
                 <div class="card-body hotel-info">
                   <h5 class="card-title hotel-title">LAUR HOTELS Experience</h5>
-                  <p class="card-text hotel-description">
-                    LAUR HOTELS Experience & Elegance is located along the beach
-                    of Altinkum.
-                  </p>
+                  <p class="card-text hotel-description">LAUR HOTELS Experience & Elegance is located along the beach of Altinkum.</p>
                   <p class="hotel-price">$170/night</p>
                   <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=170" class="btn btn-primary"
-                    >Book Now</a
-                  >
+                  <a href="Hotel Booking.html?price=170" class="btn btn-primary">Book Now</a>
                 </div>
               </div>
             </div>
             <!-- Hotel Card 5 -->
             <div class="col-md-4">
               <div class="card hotel-card">
-                <img
-                  src="assets/hotel5.jpg"
-                  class="card-img-top hotel-img"
-                  alt="Hotel 5"
-                />
+                <img src="assets/hotel5.jpg" class="card-img-top hotel-img" alt="Hotel 5"/>
                 <div class="card-body hotel-info">
                   <h5 class="card-title hotel-title">Taj Hotels</h5>
-                  <p class="card-text hotel-description">
-                    Experience a haven of luxury and comfort.Nestled in a
-                    vibrant cityscape.
-                  </p>
+                  <p class="card-text hotel-description">Experience a haven of luxury and comfort.Nestled in a vibrant cityscape.</p>
                   <p class="hotel-price">$70/night</p>
                   <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=70" class="btn btn-primary"
-                    >Book Now</a
-                  >
+                  <a href="Hotel Booking.html?price=70" class="btn btn-primary">Book Now</a>
                 </div>
               </div>
             </div>
             <!-- Hotel Card 6 -->
             <div class="col-md-4">
               <div class="card hotel-card">
-                <img
-                  src="assets/hotel6.jpg"
-                  class="card-img-top hotel-img"
-                  alt="Hotel 6"
-                />
+                <img src="assets/hotel6.jpg" class="card-img-top hotel-img" alt="Hotel 6"/>
                 <div class="card-body hotel-info">
                   <h5 class="card-title hotel-title">Virgin Hotels</h5>
-                  <p class="card-text hotel-description">
-                    Experience the epitome of luxury and sophistication at
-                    Virgin Hotels.
-                  </p>
+                  <p class="card-text hotel-description">Experience the epitome of luxury and sophistication at Virgin Hotels.</p>
                   <p class="hotel-price">$300/night</p>
                   <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=300" class="btn btn-primary"
-                    >Book Now</a
-                  >
+                  <a href="Hotel Booking.html?price=300" class="btn btn-primary">Book Now</a>
                 </div>
               </div>
             </div>
