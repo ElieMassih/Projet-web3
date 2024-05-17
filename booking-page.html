@@ -10,10 +10,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        .bleu-section{
+            background-image: url(./assets/anh.jpg);
+            background-size: cover;
+            width: 100%;
+            height: 19.3cm;
+        }
         .navbar{
-            background-color: white !important;
+            background-color: transparent !important;
             color: black !important;
-            }
+        }
         .navbar .nav-link{
             color: black !important;
         }
@@ -29,20 +35,69 @@
         .text-center{
             background-color: white !important;
         }
+        #bookingForm {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 0px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-top: 0px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Optional: Adjust styling for the input[type="date"] field */
+        input[type="date"] {
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <section class="bleu-section">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">Travel Hub
+            <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Travel Hub</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="features.html">Features</a>
@@ -75,22 +130,19 @@
             </div>
         </nav>
     <div class="container mt-5">
-        <h2 class="mb-4" style="text-align: center;">Attraction Booking</h2>
         <form id="bookingForm" onsubmit="processBooking(event)">
+            <h2 class="mb-4" style="text-align: center;">Attraction Booking!</h2>
             <!-- Attraction Name -->
             <div class="mb-3">
-                <label for="attractionName" class="form-label">Attraction Name:</label>
-                <input type="text" class="form-control" id="attractionName" readonly value="Attraction XYZ">
+                <input type="text" class="form-control" id="attractionName" placeholder="Attraction Name">
             </div>
-            
+            <div class="mb-3">
+                <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number">
+            </div>
             <!-- Date Selection -->
             <div class="mb-3">
                 <label for="date" class="form-label">Date:</label>
                 <input type="date" class="form-control" id="date">
-            </div>
-            <div class="mb-3">
-                <label for="phoneNumber" class="form-label">Phone Number:</label>
-                <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
             </div>
             <!-- Number of Persons -->
             <div class="mb-3">
@@ -106,11 +158,9 @@
                     <option value="child">Child</option>
                 </select>
             </div>
-            
             <!-- Promo Code -->
             <div class="mb-3">
-                <label for="promoCode" class="form-label">Promo Code:</label>
-                <input type="text" class="form-control" id="promoCode">
+                <input type="text" class="form-control" id="promoCode" placeholder="Promo Code">
             </div>
             
             <!-- Submit Button -->

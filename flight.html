@@ -11,8 +11,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .bleu-section .navbar {
-            background-color: white !important;
+        .bleu-section{
+            background-image: url(./assets/anh.jpg);
+            background-size: cover;
+            width: 100%;
+            height: 19.3cm;
+        }
+        .navbar {
+            background-color: transparent !important;
             color: black !important;
         }
         .bleu-section .navbar-nav .nav-link {
@@ -24,23 +30,71 @@
         .navbar-brand {
             color: black !important;
         }
-        .carousel-inner {
-            margin-bottom: 3%;
-            margin-top: 3%;
+        .flights-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .flights-section .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .flights-section .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .flights-section .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .flights-section .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .flights-section .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .featured-destinations-section {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .featured-destinations-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .featured-destinations-section p {
+            font-size: 52px;
+            margin-bottom: 40px;
         }
     </style>
 </head>
 <body>
     <section class="bleu-section">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">Travel Hub
+            <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.html">Travel Hub</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="features.html">Features</a>
@@ -72,55 +126,28 @@
                 </ul>
             </div>
         </nav>
-    </section>
     <section class="flights-section">
         <div class="container">
-            <div class="title">Flights</div>
-            <!-- Your flight search form can go here -->
             <form>
+                <div class="title" class="mb-8"><h2>Flights!</h2></div>
                 <div class="mb-3">
-                    <label for="departure" class="form-label">Departure</label>
                     <input type="text" class="form-control" id="departure" placeholder="Departure city or airport">
                 </div>
                 <div class="mb-3">
-                    <label for="destination" class="form-label">Destination</label>
                     <input type="text" class="form-control" id="destination" placeholder="Destination city or airport">
                 </div>
                 <div class="mb-3">
-                    <label for="departure-date" class="form-label">Departure Date</label>
+                    <label for="departure-date" class="form-label" style="text-align: left;">Departure Date:</label>
                     <input type="date" class="form-control" id="departure-date">
                 </div>
                 <button type="submit" class="btn btn-primary">Search Flights</button>
             </form>
         </div>
     </section>
-    <section class="middle-content">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/flight.jpg" class="d-block mx-auto" style="width: 950px; height: 600px;" alt="Destination 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/flight2.jpg" class="d-block mx-auto" style="width: 950px; height: 600px;" alt="Destination 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/flight3.jpg" class="d-block mx-auto" style="width: 950px; height: 600px;" alt="Destination 3">
-                </div>
-            </div>
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </section>
-    <section style="background-color: white; text-align: center; margin-top: 0px;">
+    <section style="text-align: center;">
         <h2>Explore Our Featured Destinations</h2>
         <p>Discover amazing travel destinations around the world</p>
+    </section>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

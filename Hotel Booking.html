@@ -11,8 +11,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <style>
+        .bleu-section{
+            background-image: url(./assets/anh.jpg);
+            background-size: cover;
+            width: 100%;
+            height: 19.3cm;
+        }
         .navbar{
-            background-color: white !important;
+            background-color: transparent !important;
             color: black !important;
         }
         .navbar .nav-link{
@@ -24,19 +30,50 @@
         .navbar-brand{
             color: black !important;
         }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <section class="bleu-section">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">Travel Hub
+        <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Travel Hub</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="features.html">Features</a>
@@ -68,21 +105,17 @@
             </ul>
         </div>
     </nav>
-    <div>
         <div id="bookingForm" class="container mt-5">
-            <h2 class="mb-4" style="text-align: center;">Hotel Booking</h2>
             <form>
+                <h2 class="mb-4" style="text-align: center;">Hotel Booking</h2>
                 <div class="mb-3">
-                    <label for="fullName" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                    <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
                 </div>
                 <div class="mb-3">
-                    <label for="phoneNumber" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number" required>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
                 </div>
                 <div class="mb-3">
                     <label for="checkInDate" class="form-label">Check-in Date</label>
@@ -99,7 +132,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-    </div>
+    </section>
         <!-- Add an element to display the bill content -->
         <div id="billContent"></div>
 
