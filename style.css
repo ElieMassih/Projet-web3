@@ -1,3 +1,14 @@
+@media screen and (max-width: 992px) {
+    .bleu-section1 .bleu-section {
+        width: 50%;
+    }
+}
+@media screen and (min-width: 600px) {
+    .bleu-section1 {
+        width: 100%;
+    }
+}
+
 /* Custom styles for bleu-section */
 .bleu-section1 {
     background-color: #05203c !important;
@@ -83,11 +94,7 @@
     margin-right: 10%;
     flex: 1;
     }
-@media (max-width:400px) {
-    .container1{
-        flex-direction: column;
-    }
-}
+
 .text-center{
     background-color:  #05203c !important;
     color: white !important;
