@@ -4,7 +4,7 @@
     }
 }
 @media screen and (min-width: 600px) {
-    .bleu-section1 {
+    .bleu-section1 .bleu-section {
         width: 100%;
     }
 }
@@ -13,7 +13,7 @@
 .bleu-section1 {
     background-color: #05203c !important;
     color: white !important;
-    height: 530px; /* Change height to auto */
+    height: 535px; /* Change height to auto */
     font-size: large;
 }
 
