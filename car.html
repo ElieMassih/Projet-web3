@@ -12,64 +12,94 @@
     <link rel="stylesheet" href="style.css">
     <title>Car Rental Form</title>
     <style>
-        .bleu-section{
-            background-image: url(./assets/anh.jpg);
-            background-size: cover;
-            width: 100%;
-            height: 19.3cm;
-        }
-        .navbar{
-            background-color: transparent !important;
-            color: black !important;
-            }
-            .navbar .nav-link{
-                color: black !important;
-            }
-            .navbar .navbar-toggler-icon{
-                color: black !important;
-            }
-            .navbar-brand{
-                color: black !important;
-            }
-            .car-form {
-                max-width: 400px;
-                margin: 0 auto;
-                margin-top: 30px;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
+      html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-            .car-form h2 {
-                color: black;
-                text-align: center;
-                margin-bottom: 20px;
-            }
+body {
+    display: flex;
+    flex-direction: column;
+}
 
-            .car-form input[type="text"],
-            .car-form input[type="email"],
-            .car-form input[type="number"],
-            .car-form select {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 15px;
-                box-sizing: border-box;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
+.bleu-section {
+    background-image: url(./assets/anh.jpg);
+    background-size: cover;
+    width: 100%;
+    flex: 1;
+}
 
-            .car-form input[type="submit"] {
-                background-color: #007bff;
-                color: #fff;
-                border: none;
-                border-radius: 4px;
-                padding: 10px 20px;
-                cursor: pointer;
-            }
+.navbar {
+    background-color: transparent !important;
+    color: black !important;
+}
 
-            .car-form input[type="submit"]:hover {
-                background-color: #0056b3;
-            }
+.bleu-section .navbar-nav .nav-link {
+    color: black !important;
+}
+
+.navbar-toggler-icon {
+    color: black !important;
+}
+
+.navbar-brand {
+    color: black !important;
+}
+
+.flights-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.flights-section .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.flights-section .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.flights-section .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.flights-section .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.flights-section .btn:hover {
+    background-color: #0056b3;
+}
+
+.featured-destinations-section {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.featured-destinations-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.featured-destinations-section p {
+    font-size: 52px;
+    margin-bottom: 40px;
+}
+
 
     </style>
 </head>
