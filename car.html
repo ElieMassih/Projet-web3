@@ -12,95 +12,94 @@
     <link rel="stylesheet" href="style.css">
     <title>Car Rental Form</title>
     <style>
-      html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
 
-body {
-    display: flex;
-    flex-direction: column;
-}
+        body {
+            display: flex;
+            flex-direction: column;
+        }
 
-.bleu-section {
-    background-image: url(./assets/anh.jpg);
-    background-size: cover;
-    width: 100%;
-    flex: 1;
-}
+        .bleu-section {
+            background-image: url(./assets/anh.jpg);
+            background-size: cover;
+            width: 100%;
+            flex: 1;
+        }
 
-.navbar {
-    background-color: transparent !important;
-    color: black !important;
-}
+        .navbar {
+            background-color: transparent !important;
+            color: black !important;
+        }
 
-.bleu-section .navbar-nav .nav-link {
-    color: black !important;
-}
+        .bleu-section .navbar-nav .nav-link {
+            color: black !important;
+        }
 
-.navbar-toggler-icon {
-    color: black !important;
-}
+        .navbar-toggler-icon {
+            color: black !important;
+        }
 
-.navbar-brand {
-    color: black !important;
-}
+        .navbar-brand {
+            color: black !important;
+        }
 
-.flights-section {
-    padding: 50px 0;
-    text-align: center;
-}
+        .flights-section {
+            padding: 50px 0;
+            text-align: center;
+        }
 
-.flights-section .container {
-    max-width: 600px;
-    margin: 0 auto;
-}
+        .flights-section .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-.flights-section .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+        .flights-section .title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.flights-section .form-control {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+        .flights-section .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-.flights-section .btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
+        .flights-section .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
 
-.flights-section .btn:hover {
-    background-color: #0056b3;
-}
+        .flights-section .btn:hover {
+            background-color: #0056b3;
+        }
 
-.featured-destinations-section {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-    text-align: center;
-}
+        .featured-destinations-section {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+            text-align: center;
+        }
 
-.featured-destinations-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+        .featured-destinations-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-.featured-destinations-section p {
-    font-size: 52px;
-    margin-bottom: 40px;
-}
-
-
+        .featured-destinations-section p {
+            font-size: 52px;
+            margin-bottom: 40px;
+        }
     </style>
 </head>
 <body>
@@ -146,7 +145,7 @@ body {
             </div>
         </nav>
     <form action="#" method="post" class="car-form">
-        <h2 class="mb-5">Rent your car!</h2>
+        <h2 class="mb-5" style="text-align: center;">Rent your car!</h2>
         <input type="text" id="name" placeholder="Full Name" required>
 
         <input type="email" id="email" placeholder="Email" required>
