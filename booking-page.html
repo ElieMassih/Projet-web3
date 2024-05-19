@@ -10,46 +10,61 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .bleu-section{
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .bleu-section {
             background-image: url(./assets/anh.jpg);
             background-size: cover;
             width: 100%;
-            height:auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .navbar{
+
+        .navbar {
             background-color: transparent !important;
             color: black !important;
         }
-        .navbar .nav-link{
+
+        .navbar .nav-link {
             color: black !important;
         }
-        .navbar .navbar-toggler-icon{
+
+        .navbar .navbar-toggler-icon {
             color: black !important;
         }
-        .navbar-brand{
+
+        .navbar-brand {
             color: black !important;
         }
-        a{
+
+        a {
             text-decoration: none;
         }
-        .text-center{
+
+        .text-center {
             background-color: white !important;
         }
+
         #bookingForm {
             max-width: 400px;
             margin: 0 auto;
-            margin-top: 0px;
-            margin-bottom: 0;
             padding: 15px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            margin-bottom: 0px;
+            background-color: white;
         }
 
         .form-control {
             width: 100%;
             padding: 10px;
-            margin-top: 0px;
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -85,6 +100,17 @@
         /* Optional: Adjust styling for the input[type="date"] field */
         input[type="date"] {
             padding: 10px;
+        }
+
+        #bill {
+            display: none;
+            text-align: left;
+            color: black;
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
         }
     </style>
 </head>
