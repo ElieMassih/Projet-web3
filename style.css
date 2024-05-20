@@ -8,7 +8,11 @@
         width: 100%;
     }
 }
-
+@media (max-width: 575.98px) {
+    .col-md-2, .col-md-3 {
+        flex: 1 0 100%;
+    }
+}
 /* Custom styles for bleu-section */
 .bleu-section1 {
     background-color: #05203c !important;

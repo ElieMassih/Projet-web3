@@ -54,7 +54,6 @@
             margin-top: 0px;
             margin-bottom: 0;
             padding: 15px;
-            border: 1px solid #ccc;
             border-radius: 5px;
             margin-bottom: 0px;
         }
@@ -159,7 +158,7 @@
         <section class="flights-section">
             <div class="container">
                 <form>
-                    <div class="title" class="mb-8"><h2>Flights!</h2></div>
+                    <div class="title mb-8"><h2>Flights!</h2></div>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="departure" placeholder="Departure city or airport">
                     </div>
@@ -178,38 +177,57 @@
             <h2>Explore Our Featured Destinations</h2>
             <p>Discover amazing travel destinations around the world</p>
         </section>
+        
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-    $(document).ready(function() {
-    // Sample data for autocomplete suggestions (you can replace this with your actual data)
-    var data = [
-        { label: "New York (JFK)", value: "JFK" },
-        { label: "Los Angeles (LAX)", value: "LAX" },
-        { label: "Chicago (ORD)", value: "ORD" },
-        { label: "San Francisco (SFO)", value: "SFO" },
-        { label: "Atlanta (ATL)", value: "ATL" },
-        { label: "Denver (DEN)", value: "DEN" },
-        // Add more airports as needed
-    ];
+    const cities = [
+    "Abu Dhabi", "Amsterdam", "Bangkok", "Barcelona", "Berlin", "Cairo", "Cape Town", "Dubai", "Florence", "Hong Kong",
+    "Istanbul", "Kyoto", "Las Vegas", "London", "Los Angeles", "Madrid", "Miami", "Moscow", "New York City", "Paris",
+    "Rio de Janeiro", "Rome", "San Francisco", "Seoul", "Shanghai", "Singapore", "Sydney", "Tokyo", "Toronto", "Venice",
+    "Vienna", "Zurich"
+];
 
-    // Initialize autocomplete for the departure input field
-    $("#departure").autocomplete({
-        source: function(request, response) {
-            // Filter the data based on user input
-            var term = $.ui.autocomplete.escapeRegex(request.term);
-            var matcher = new RegExp(term, "i");
-            response($.grep(data, function(item) {
-                return matcher.test(item.label);
-            }));
-        },
-        minLength: 2 // Minimum characters before triggering autocomplete
+    // Get input elements
+    const departureInput = document.getElementById("departure");
+    const destinationInput = document.getElementById("destination");
+
+    // Event listener for input change
+    departureInput.addEventListener("input", function() {
+        filterCities(departureInput, "departure");
     });
 
-    // Log a message to confirm that the document is ready
-    console.log("Document is ready.");
-});
+    destinationInput.addEventListener("input", function() {
+        filterCities(destinationInput, "destination");
+    });
 
+    // Function to filter cities based on user input
+    function filterCities(input, type) {
+        const inputValue = input.value.toLowerCase();
+        const filteredCities = cities.filter(city => city.toLowerCase().startsWith(inputValue));
+        
+        const selectElement = document.createElement("select");
+        selectElement.setAttribute("class", "form-select");
+        selectElement.setAttribute("id", type);
+
+        const defaultOption = document.createElement("option");
+        defaultOption.textContent = `Select ${type === "departure" ? "departure" : "destination"}`;
+        selectElement.appendChild(defaultOption);
+
+        filteredCities.forEach(city => {
+            const option = document.createElement("option");
+            option.value = city;
+            option.textContent = city;
+            selectElement.appendChild(option);
+        });
+
+        const existingSelect = document.getElementById(type);
+        if (existingSelect) {
+            existingSelect.replaceWith(selectElement);
+        } else {
+            input.parentNode.replaceChild(selectElement, input);
+        }
+    }
     </script>
 </body>
 </html>
