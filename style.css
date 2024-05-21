@@ -89,12 +89,12 @@
 }
 
 .box-1 {
-    height: 450px;
+    height: 300px;
     margin-left: 10%;
     flex: 1;
     }
 .box-2{
-    height: 450px;
+    height: 300px;
     margin-right: 10%;
     flex: 1;
     }
