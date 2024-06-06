@@ -1,6 +1,6 @@
 <?php
 
-include_once "../dbcon/Connection.php";
+include_once __DIR__ . "/../dbcon/Connection.php";
 
 class ModuleEncryption extends DBConnection
 {

@@ -1,8 +1,8 @@
 <?php
 
 include_once "session.php";
-require_once "./modules/ModuleUser.php";
-require_once "./modules/ModuleEncryption.php";
+require_once __DIR__ . '/../modules/ModuleUser.php';
+require_once __DIR__ . '/../modules/ModuleEncryption.php';
 
 $moduleUser = new ModuleUser();
 $moduleEncryption = new ModuleEncryption();
@@ -14,7 +14,7 @@ if (isset($_POST['username'])) {
         $password = '';
     }
 
-    $loginAttempt = $moduleUser->loginUser(isset($_POST['username']) ? $_POST['username'] : '', isset($_POST['email']) ? $_POST['email'] : '', $password);
+    $loginAttempt = $moduleUser->loginUser(isset($_POST['username']) ? $_POST['username'] : '', $password);
 
     if (!empty($loginAttempt)) {
         if ($loginAttempt['status'] == 0) {
@@ -29,6 +29,4 @@ if (isset($_POST['username'])) {
     } else {
         $data['isLoginSuccess'] = false;
     }
-
-
 }

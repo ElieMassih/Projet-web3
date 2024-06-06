@@ -4,7 +4,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-include_once "../dbcon/Connection.php";
+include_once __DIR__ . "/../dbcon/Connection.php";
+include_once __DIR__ . "/../utils/functions.php";
+include_once __DIR__ . "/ModuleEncryption.php";
 
 class ModuleUser extends DBConnection
 {
@@ -15,16 +17,16 @@ class ModuleUser extends DBConnection
         $this->sql_conn = $this->sql_connect();
     }
 
-    function loginUser($username, $email, $password)
+    function loginUser($username, $password)
     {
-        $sql = 'SELECT * FROM USERS 
-        WHERE "Password" = :Password
-        AND ("Username" = :UsernameOrEmail OR "Email" = :UsernameOrEmail)';
+        $sql = 'SELECT * FROM users 
+        WHERE Password = :Password
+        AND (Username = :UsernameOrEmail OR Email = :UsernameOrEmail)';
 
         $stmt = $this->sql_conn->prepare($sql);
         $stmt-> bindParam(":Password", $password, PDO::PARAM_STR);
-        $stmt-> bindParam(":Username", $username, PDO::PARAM_STR);
-        $stmt-> bindParam(":Email", $email, PDO::PARAM_STR);
+        $stmt-> bindParam(":UsernameOrEmail", $username, PDO::PARAM_STR);
+    
 
         $stmt->execute();
 
@@ -42,4 +44,77 @@ class ModuleUser extends DBConnection
         }
         return $data;
     }
+
+    function createUser($params)
+    {
+        $encryption = new ModuleEncryption();
+
+        $sql = 'INSERT INTO users
+        (UserId, FullName, Username, Password, Email) 
+        VALUES 
+        (:UserId, :FullName, :Username, :Password, :Email)';
+
+        $stmt = $this->sql_conn->prepare($sql);
+
+        $userId = guidv4();
+        
+        $encryptedPassword = $encryption->encryptUserPassword($params["password"]);
+        $stmt->bindParam(":UserId", $userId, PDO::PARAM_STR);
+        $stmt->bindParam(":FullName", $params["fullname"], PDO::PARAM_STR);
+        $stmt->bindParam(":Username", $params["username"], PDO::PARAM_STR);
+        $stmt->bindParam(":Password", $encryptedPassword, PDO::PARAM_STR);
+        $stmt->bindParam(":Email", $params["email"], PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    function updateUser($params)
+    {
+        $sql = 'UPDATE users 
+                SET 
+                FullName = :FullName, 
+                Username = :Username, 
+                Password = :Password, 
+                Email = :Email 
+                WHERE UserId = :UserId';
+
+        $stmt = $this->sql_conn->prepare($sql);
+
+        $stmt->bindParam(":UserId", $params["userId"], PDO::PARAM_STR);
+        $stmt->bindParam(":FullName", $params["fullname"], PDO::PARAM_STR);
+        $stmt->bindParam(":Username", $params["username"], PDO::PARAM_STR);
+        $stmt->bindParam(":Password", $params["password"], PDO::PARAM_STR);
+        $stmt->bindParam(":Email", $params["email"], PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() == 0) {
+            return false;
+        }
+
+        return true;
+    }
+}
+
+$moduleUser = new ModuleUser();
+
+if (isset($_POST["action"]) && isset($_POST["params"])) { 
+    $action = $_POST["action"];
+    $params = $_POST["params"];
+
+    if ($action == "create") {
+        var_dump("here");
+        $result = $moduleUser->createUser($params);
+    } elseif ($action == "update") {
+        var_dump("here2");
+        $result = $moduleUser->updateUser($params);
+    }
+
+    echo json_encode(["success" => $result]);
 }

@@ -1,3 +1,11 @@
+<?php
+ require("../../auth/login_guard.php");
+ include_once("../../utils/alerts.php");
+
+ if (isset($_SESSION['userid'])) {
+  header("Location: ../Home/home.php");
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../style.css">
     <style>
       body {
         padding: 0;
@@ -85,9 +93,15 @@
         text-align: center;
       }
     </style>
+    <script src="../../js/alerts.js"></script>
 </head>
 <body>
   <div class="vid-container">
+    <?php
+    if (isset($data['isLoginSuccess'])) {
+      displayAlert("invalid-login", "Invalid Login!", "Username/Email or Password incorrect", "error", 2);
+    }
+    ?>
     <video class="bgvid" autoplay muted preload="auto" loop>
         <source src="./assets/dady.mp4" type="video/mp4">
         <source src="./assets/dady.webm" type="video/webm">
@@ -96,14 +110,16 @@
     <div class="inner-container">
       <div class="box">
         <h1>Login</h1>
-        <input type="text" placeholder="Username"/>
-        <input type="text" placeholder="Password"/>
-        <button>Login</button>
-        <p>Not a member? <a href="signup.html" style="color: whitesmoke; text-decoration: none;">SignUp</a></p>
+        <form id="login" name="login" action="" method="POST">
+          <input type="text" name="username" placeholder="Username or email" id="username" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>" required/>
+          <input type="password" id="password" name="password" placeholder="Password" value="<?php if(isset($_POST['password'])) echo $_POST['password'] ?>" required/>
+          <button type="submit">Login</button>
+        </form>
+        <p>Not a member? <a href="../Register/register.php" style="color: whitesmoke; text-decoration: none;">SignUp</a></p>
       </div>
     </div>
   </div>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-      <script src="js/index.js"></script>
+      <script src="login.js"></script>
 </body>
 </html>
