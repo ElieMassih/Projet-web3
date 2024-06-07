@@ -109,10 +109,8 @@ if (isset($_POST["action"]) && isset($_POST["params"])) {
     $params = $_POST["params"];
 
     if ($action == "create") {
-        var_dump("here");
         $result = $moduleUser->createUser($params);
     } elseif ($action == "update") {
-        var_dump("here2");
         $result = $moduleUser->updateUser($params);
     }
 
