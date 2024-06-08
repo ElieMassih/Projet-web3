@@ -32,7 +32,7 @@
       .inner-container {
         width: 80%;
         max-width: 400px;
-        height: 560px;
+        height: 640px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -89,7 +89,7 @@
 <body>
   <div class="vid-container">
     <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
-        <source src="./assets/dady.mp4">
+        <source src="../../assets/dady.mp4">
     </video>
         <div class="inner-container">
             <div class="box">

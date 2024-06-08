@@ -103,9 +103,9 @@
     }
     ?>
     <video class="bgvid" autoplay muted preload="auto" loop>
-        <source src="./assets/dady.mp4" type="video/mp4">
-        <source src="./assets/dady.webm" type="video/webm">
-        <source src="./assets/dady.ogv" type="video/ogg">
+        <source src="../../assets/dady.mp4" type="video/mp4">
+        <source src="../../assets/dady.webm" type="video/webm">
+        <source src="../../assets/dady.ogv" type="video/ogg">
     </video>
     <div class="inner-container">
       <div class="box">

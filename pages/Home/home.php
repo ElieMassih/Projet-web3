@@ -121,7 +121,7 @@
                     </div>
                 </div>
             </div>
-                <img src="assets/plane2.jpg" alt="projet" class="image">
+                <img src="../../assets/plane2.jpg" alt="projet" class="image">
                     <div class="container1">
                         <div class="box-1">
                             <div class="accordion accordion-flush" id="accordionFlushExample1">
