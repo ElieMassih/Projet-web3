@@ -1,65 +1,7 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.fontawesome.com/releases/v6.0.0-beta1/js/all.js" integrity="sha384-X3IEo5PLmJXYVMSUNA2Kzwcgk7uHkGdavBv34rDaklZo+nDXZIveE6PWNKdYgj7r" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../style.css">
-    <style>
-        body{
-            overflow-x: hidden;
-        }
-        a{
-            text-decoration: none;
-            color: white;
-        }
-    </style>
-</head>
 <body>
     <section class="bleu-section1">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Travel Hub</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="features.html">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Attractions & Tours.html">Attractions & Tours</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="flight.html">Flights</a></li>
-                                <li><a class="dropdown-item" href="hotel.html">Hotels</a></li>
-                                <li><a class="dropdown-item" href="cars.html">Cars</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="nav navbar-nav navbar-right" style="list-style-type: none; display: flex; align-items: center; height: 50px;">
-                    <li style="margin-right: 5px;">
-                        <a href="login.html" style="color: white; text-decoration: none; font-size: medium; display: flex; align-items: center; height: 100%;">
-                            <i class="fas fa-user-circle" style="margin-right: 5px; font-size: 24px;"></i> Login
-                        </a>
-                    </li>
-                    <li>
-                        <a href="signup.html" style="color: white; text-decoration: none; font-size: medium; display: flex; align-items: center; height: 100%;">
-                            <i class="fas fa-sign-out-alt" style="margin-right: 5px; font-size: 24px;"></i> SignUp
-                        </a>
-                    </li>
-                </ul>
-        </nav>
+    <?php include '../Header/header.php'; ?>
         <div class="container text-center">
             <div class="row">
                 <div class="col-4">Flights
@@ -81,7 +23,7 @@
                         <p>Explore our destination guides to discover top travel spots around the world.</p>
                     </div>
                     <div>
-                        <a href="guides.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">View Guides</a>
+                        <a href="../../guides.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">View Guides</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -90,7 +32,7 @@
                         <p>Discover our top hotel recommendations for your next trip.</p>
                     </div>
                     <div>
-                        <a href="hotel.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Explore Hotels</a>
+                        <a href="../../hotel.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Explore Hotels</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -99,7 +41,7 @@
                         <p>Find the perfect car rental for your journey with our wide selection of options.</p>
                     </div>
                     <div>
-                        <a href="cars.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Rent a Car</a>
+                        <a href="../../cars.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Rent a Car</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -108,7 +50,7 @@
                         <p>Search for flights to your desired destination and book your next adventure.</p>
                     </div>
                     <div>
-                        <a href="flight.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Search Flights</a>
+                        <a href="../../flight.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Search Flights</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -117,7 +59,7 @@
                         <p>Protect your trip with travel insurance. Learn more about our coverage options.</p>
                     </div>
                     <div>
-                        <a href="insurance.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Get Insured</a>
+                        <a href="../../insurance.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Get Insured</a>
                     </div>
                 </div>
             </div>
@@ -239,14 +181,14 @@
                         </div>
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">Products</h6>
-                            <p><a href="guest-house.html" class="text-reset">Guest House</a></p>
-                            <p><a href="hotel.html" class="text-reset">Hotels</a></p>
-                            <p><a href="flight.html" class="text-reset">Flights</a></p>
-                            <p><a href="cars.html" class="text-reset">Cars Hire</a></p>
+                            <p><a href="../../guest-house.html" class="text-reset">Guest House</a></p>
+                            <p><a href="../../hotel.html" class="text-reset">Hotels</a></p>
+                            <p><a href="../../flight.html" class="text-reset">Flights</a></p>
+                            <p><a href="../../cars.html" class="text-reset">Cars Hire</a></p>
                         </div>
                         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                            <p><a href="Attractions & Tours.html" class="text-reset">Attractions & Tours</a></p>
+                            <p><a href="../../Attractions & Tours.html" class="text-reset">Attractions & Tours</a></p>
                             <p><a href="#!" class="text-reset">Settings</a></p>
                             <p><a href="#!" class="text-reset">Orders</a></p>
                             <p><a href="#!" class="text-reset">Help</a></p>
