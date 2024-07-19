@@ -1,178 +1,187 @@
 @media screen and (max-width: 992px) {
-    .bleu-section1 .bleu-section {
-        width: 50%;
-    }
+  .bleu-section1 .bleu-section {
+    width: 50%;
+  }
 }
 @media screen and (min-width: 600px) {
-    .bleu-section1 .bleu-section {
-        width: 100%;
-    }
+  .bleu-section1 .bleu-section {
+    width: 100%;
+  }
 }
 @media (max-width: 575.98px) {
-    .col-md-2, .col-md-3 {
-        flex: 1 0 100%;
-    }
+  .col-md-2,
+  .col-md-3 {
+    flex: 1 0 100%;
+  }
 }
 /* Custom styles for bleu-section */
 .bleu-section1 {
-    background-color: #05203c !important;
-    color: white !important;
-    height: 535px; /* Change height to auto */
-    font-size: large;
+  background-color: #05203c !important;
+  color: white !important;
+  height: 535px; /* Change height to auto */
+  font-size: large;
 }
 
 /* Custom styles for navbar */
 .navbar {
-    background-color: #05203c !important;
-    color: white !important;
+  background-color: #05203c !important;
+  color: white !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .navbar .nav-link {
-    color: white !important;
+  color: white !important;
 }
 
 .navbar .navbar-toggler-icon {
-    background-color: white !important;
+  background-color: white !important;
 }
 
 /* Custom styles for navbar-brand */
 .navbar-brand {
-    color: white !important;
+  color: white !important;
 }
 
 /* Margin for rows */
 .row {
-    margin-top: 20px !important; /* Adjust the value as needed */
+  margin-top: 20px !important; /* Adjust the value as needed */
 }
 
 /* Title styles */
 .title {
-    font-size: xx-large;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
+  font-size: xx-large;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 /* FontAwesome icon size */
 .fas {
-    margin: 15px;
-    font-size: 1.3em !important; /* Adjust the font size as per your requirement */
+  margin: 15px;
+  font-size: 1.3em !important; /* Adjust the font size as per your requirement */
 }
 
-.image{
-    width: 80%;
-    height: 15cm;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 2%;
-    margin-bottom: 2%;
+.image {
+  width: 80%;
+  height: 15cm;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .container1 {
-    display: flex !important;
-    background-color: white !important;
+  display: flex !important;
+  background-color: white !important;
 }
 
 .accordion {
-    width: 98%;
+  width: 98%;
 }
 
 .accordion-item .accordion-button {
-    background-color: white !important; /* Set background color to white */
-    color: black !important; /* Set text color to black for better readability */
+  background-color: white !important; /* Set background color to white */
+  color: black !important; /* Set text color to black for better readability */
 }
 
 /* Add background color to accordion content */
 .accordion-collapse {
-    background-color: white; /* Set background color to white for answers */
-    color: black; /* Set text color to black for better readability */
+  background-color: white; /* Set background color to white for answers */
+  color: black; /* Set text color to black for better readability */
 }
 
 .box-1 {
-    height: 300px;
-    margin-left: 10%;
-    flex: 1;
-    }
-.box-2{
-    height: 300px;
-    margin-right: 10%;
-    flex: 1;
-    }
+  height: 300px;
+  margin-left: 10%;
+  flex: 1;
+}
+.box-2 {
+  height: 300px;
+  margin-right: 10%;
+  flex: 1;
+}
 
-.text-center{
-    background-color:  #05203c !important;
-    color: white !important;
+.text-center {
+  background-color: #05203c !important;
+  color: white !important;
 }
 
 .navbar-nav .nav-link .bi {
-    font-family: "Helvetica Neue", Arial, sans-serif; /* Change the font family to match your navbar text */
+  font-family: "Helvetica Neue", Arial, sans-serif; /* Change the font family to match your navbar text */
 }
 
-.container-fluid{
-    font-size: large !important;
+.container-fluid {
+  font-size: large !important;
 }
 
 /* Some basic styling */
 form {
-    max-width: 400px;
-    margin: 0 auto;
+  max-width: 400px;
+  margin: 0 auto;
 }
 label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
-input[type="text"], input[type="email"], input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 input[type="submit"] {
-    background-color: #1e90ff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #1e90ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 input[type="submit"]:hover {
-    background-color: #1e90ff;
+  background-color: #1e90ff;
 }
-.car-form{
-    margin-top: 100px;
-    margin-bottom: 150px;
-}
-
-.text-dec{
-    text-decoration: none;
-    color: black;
+.car-form {
+  margin-top: 100px;
+  margin-bottom: 150px;
 }
 
- /* Some basic styling */
+.text-dec {
+  text-decoration: none;
+  color: black;
+}
+
+/* Some basic styling */
 form {
-    max-width: 400px;
-    margin: 0 auto;
+  max-width: 400px;
+  margin: 0 auto;
 }
 label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
-input[type="text"], input[type="email"], input[type="number"], select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 input[type="submit"] {
-    background-color: #1e90ff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #1e90ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 input[type="submit"]:hover {
-    background-color: #1e90ff;
+  background-color: #1e90ff;
 }

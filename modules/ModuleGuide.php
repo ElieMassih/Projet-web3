@@ -28,10 +28,10 @@ class ModuleGuide extends DBConnection
         $data = array();
 
         if ($stmt->rowCount() == 0)
-        return $data;
+            return $data;
 
         foreach ($result as $row) {
-            $data = $row;
+            $data[] = $row; 
         }
 
         return $data;
@@ -39,7 +39,7 @@ class ModuleGuide extends DBConnection
 
     function addGuides($params)
     {
-        $sql = 'INSERT INTO attractions 
+        $sql = 'INSERT INTO guides 
         (AttractionId, AttractionName, AttractionLocation, AttractionDescription, AttractionRating, AttractionReviews, AttractionPrice, AttractionPics)
         VALUES
         (:AttractionId, :AttractionName, :AttractionLocation, :AttractionDescription, :AttractionRating, :AttractionReviews, :AttractionPrice, :AttractionPics)';

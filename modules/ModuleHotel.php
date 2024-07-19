@@ -28,10 +28,10 @@ class ModuleHotel extends DBConnection
         $data = array();
 
         if ($stmt->rowCount() == 0)
-        return $data;
+            return $data;
 
         foreach ($result as $row) {
-            $data = $row;
+            $data[] = $row; 
         }
 
         return $data;
@@ -63,13 +63,13 @@ class ModuleHotel extends DBConnection
         return true;
     }
 
-    function deleteHotels($hotelId)
+    function deleteHotels($params)
     {
         $sql = 'DELETE FROM hotels WHERE HotelId = :HotelId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $stmt->bindParam(":HotelId", $hotelId, PDO::PARAM_STR);
+        $stmt->bindParam(":HotelId", $params, PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -86,7 +86,7 @@ class ModuleHotel extends DBConnection
         SET HotelName = :HotelName,
             HotelDescription = :HotelDescription,
             PricePerNight = :PricePerNight,
-            HotelPics = :HotelPics,
+            HotelPics = :HotelPics
         WHERE HotelId = :HotelId';
 
         $stmt = $this->sql_conn->prepare($sql);
@@ -105,4 +105,22 @@ class ModuleHotel extends DBConnection
         return true;
     }
 
+}
+
+$moduleHotel = new ModuleHotel();
+
+if (isset($_POST["action"]) && isset($_POST["params"])) { 
+    $action = $_POST["action"];
+    $params = $_POST["params"];
+
+
+    if ($action == "update") {
+        $result = $moduleHotel->updateHotels($params);
+    } elseif ($action == "add") {
+        $result = $moduleHotel->addHotels($params);
+    } elseif ($action == "delete") {
+        $result = $moduleHotel->deleteHotels($params);
+    }
+
+    echo json_encode(["success" => $result]);
 }

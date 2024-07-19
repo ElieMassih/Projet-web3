@@ -45,6 +45,27 @@ class ModuleUser extends DBConnection
         return $data;
     }
 
+    function getUsers()
+    {
+        $sql = 'SELECT * FROM users';
+
+        $stmt = $this->sql_conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $data = array();
+
+        if ($stmt->rowCount() == 0)
+            return $data;
+
+        foreach ($result as $row) {
+            $data[] = $row; 
+        }
+
+        return $data;
+    }
+
     function createUser($params)
     {
         $encryption = new ModuleEncryption();
@@ -74,28 +95,83 @@ class ModuleUser extends DBConnection
         return true;
     }
 
-    function updateUser($params)
+    function addUser($params)
     {
-        $sql = 'UPDATE users 
-                SET 
-                FullName = :FullName, 
-                Username = :Username, 
-                Password = :Password, 
-                Email = :Email 
-                WHERE UserId = :UserId';
+        $encryption = new ModuleEncryption();
+
+        $sql = 'INSERT INTO users
+        (UserId, FullName, Username, Password, Email, Role, Status) 
+        VALUES 
+        (:UserId, :FullName, :Username, :Password, :Email, :Role, :Status)';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $stmt->bindParam(":UserId", $params["userId"], PDO::PARAM_STR);
+        $userId = guidv4();
+        
+        $encryptedPassword = $encryption->encryptUserPassword($params["password"]);
+        $stmt->bindParam(":UserId", $userId, PDO::PARAM_STR);
         $stmt->bindParam(":FullName", $params["fullname"], PDO::PARAM_STR);
         $stmt->bindParam(":Username", $params["username"], PDO::PARAM_STR);
-        $stmt->bindParam(":Password", $params["password"], PDO::PARAM_STR);
+        $stmt->bindParam(":Password", $encryptedPassword, PDO::PARAM_STR);
         $stmt->bindParam(":Email", $params["email"], PDO::PARAM_STR);
+        $stmt->bindParam(":Role", $params["role"], PDO::PARAM_STR);
+        $stmt->bindParam(":Status", $params["status"], PDO::PARAM_STR);
 
         $stmt->execute();
 
         if ($stmt->rowCount() == 0) {
             return false;
+        }
+
+        return true;
+    }
+
+    function updateUser($params)
+    {
+        $encryption = new ModuleEncryption();
+
+        $sql = 'UPDATE users 
+                SET 
+                FullName = :FullName, 
+                Username = :Username, 
+                Password = :Password, 
+                Email = :Email,
+                Role = :Role,
+                Status = :Status
+                WHERE UserId = :UserId';
+
+        $stmt = $this->sql_conn->prepare($sql);
+
+        $encryptedPassword = $encryption->encryptUserPassword($params["password"]);
+        $stmt->bindParam(":UserId", $params["userId"], PDO::PARAM_STR);
+        $stmt->bindParam(":FullName", $params["fullname"], PDO::PARAM_STR);
+        $stmt->bindParam(":Username", $params["username"], PDO::PARAM_STR);
+        $stmt->bindParam(":Password", $encryptedPassword, PDO::PARAM_STR);
+        $stmt->bindParam(":Email", $params["email"], PDO::PARAM_STR);
+        $stmt->bindParam(":Role", $params["role"], PDO::PARAM_STR);
+        $stmt->bindParam(":Status", $params["status"], PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() == 0) {
+            return false;
+        }
+
+        return true;
+    }
+
+    function deleteUser($params)
+    {
+        $sql = 'DELETE FROM users WHERE UserId = :UserId';
+
+        $stmt = $this->sql_conn->prepare($sql);
+
+        $stmt->bindParam(":UserId", $params, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() == 0) {
+        return false;
         }
 
         return true;
@@ -108,10 +184,15 @@ if (isset($_POST["action"]) && isset($_POST["params"])) {
     $action = $_POST["action"];
     $params = $_POST["params"];
 
+
     if ($action == "create") {
         $result = $moduleUser->createUser($params);
     } elseif ($action == "update") {
         $result = $moduleUser->updateUser($params);
+    } elseif ($action == "add") {
+        $result = $moduleUser->addUser($params);
+    } elseif ($action == "delete") {
+        $result = $moduleUser->deleteUser($params);
     }
 
     echo json_encode(["success" => $result]);

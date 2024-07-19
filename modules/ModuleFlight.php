@@ -28,10 +28,10 @@ class ModuleFlight extends DBConnection
         $data = array();
 
         if ($stmt->rowCount() == 0)
-        return $data;
+            return $data;
 
         foreach ($result as $row) {
-            $data = $row;
+            $data[] = $row; 
         }
 
         return $data;

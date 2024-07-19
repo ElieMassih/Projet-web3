@@ -28,10 +28,10 @@ class ModuleAttraction extends DBConnection
         $data = array();
 
         if ($stmt->rowCount() == 0)
-        return $data;
+            return $data;
 
         foreach ($result as $row) {
-            $data = $row;
+            $data[] = $row; 
         }
 
         return $data;
@@ -52,10 +52,10 @@ class ModuleAttraction extends DBConnection
         $stmt->bindParam(":AttractionName", $params["attractionName"], PDO::PARAM_STR);
         $stmt->bindParam(":AttractionLocation", $params["attractionLocation"], PDO::PARAM_STR);
         $stmt->bindParam(":AttractionDescription", $params["attractionDescription"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionRating"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionReviews"], PDO::PARAM_STR);
+        $stmt->bindParam(":AttractionRating", $params["attractionRating"], PDO::PARAM_STR);
+        $stmt->bindParam(":AttractionReviews", $params["attractionReviews"], PDO::PARAM_STR);
         $stmt->bindParam(":AttractionPrice", $params["attractionPrice"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPics", $params["attractionPic"], PDO::PARAM_STR);
+        $stmt->bindParam(":AttractionPics", $params["attractionPics"], PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -68,7 +68,7 @@ class ModuleAttraction extends DBConnection
 
     function deleteAttractions($attractionId)
     {
-        $sql = 'DELETE FROM attractions WHERE "AttractionId" = :AttractionId';
+        $sql = 'DELETE FROM attractions WHERE AttractionId = :AttractionId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
@@ -86,14 +86,14 @@ class ModuleAttraction extends DBConnection
     function updateAttractions($params)
     {
         $sql = 'UPDATE attractions 
-        SET "AttractionName" = :AttractionName,
-            "AttractionLocation" = :AttractionLocation,
-            "AttractionDescription" = :AttractionDescription,
-            "AttractionRating" = :AttractionRating,
-            "AttractionReviews" = :AttractionReviews,
-            "AttractionPrice" = :AttractionPrice,
-            "AttractionPics" = :AttractionPics
-        WHERE "AttractionId" = :AttractionId';
+        SET AttractionName = :AttractionName,
+            AttractionLocation = :AttractionLocation,
+            AttractionDescription = :AttractionDescription,
+            AttractionRating = :AttractionRating,
+            AttractionReviews = :AttractionReviews,
+            AttractionPrice = :AttractionPrice,
+            AttractionPics = :AttractionPics
+        WHERE AttractionId = :AttractionId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
@@ -114,6 +114,22 @@ class ModuleAttraction extends DBConnection
 
         return true;
     }
+}
+
+$moduleAttraction = new ModuleAttraction();
+
+if (isset($_POST["action"]) && isset($_POST["params"])) { 
+    $action = $_POST["action"];
+    $params = $_POST["params"];
 
 
+    if ($action == "update") {
+        $result = $moduleAttraction->updateAttractions($params);
+    } elseif ($action == "add") {
+        $result = $moduleAttraction->addAttractions($params);
+    } elseif ($action == "delete") {
+        $result = $moduleAttraction->deleteAttractions($params);
+    }
+
+    echo json_encode(["success" => $result]);
 }
