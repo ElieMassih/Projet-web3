@@ -26,17 +26,26 @@ if (session_status() == PHP_SESSION_NONE) {
                         <a class="nav-link active" aria-current="page" href="../Home/home.php">Travel Hub</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../features.html">Features</a>
+                        <a class="nav-link" href="../Features/features.php">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Attractions & Tours.html">Attractions & Tours</a>
+                        <a class="nav-link" href="../Attractions&Tours/Attractions&Tours.php">Attractions & Tours</a>
                     </li>
+                    <?php
+                    if ($_SESSION['user_role'] == 1) {
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Admin/admin.php">Admin</a>
+                    </li>
+                    <?php
+                    }
+                    ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../../flight.html">Flights</a></li>
-                            <li><a class="dropdown-item" href="../../hotel.html">Hotels</a></li>
-                            <li><a class="dropdown-item" href="../../cars.html">Cars</a></li>
+                            <li><a class="dropdown-item" href="../Flight/flight.php">Flights</a></li>
+                            <li><a class="dropdown-item" href="../Hotels/hotel.php">Hotels</a></li>
+                            <li><a class="dropdown-item" href="../Cars/cars.php">Cars</a></li>
                         </ul>
                     </li>
                 </ul>

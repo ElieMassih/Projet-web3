@@ -1,104 +1,7 @@
-<!DOCTYPE html>
 <html>
-<hea>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features - Your Travel Hub</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.fontawesome.com/releases/v6.0.0-beta1/js/all.js" integrity="sha384-X3IEo5PLmJXYVMSUNA2Kzwcgk7uHkGdavBv34rDaklZo+nDXZIveE6PWNKdYgj7r" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-    <style>
-            .bleu-section {
-                background-color: white; 
-                padding-top: 20px; 
-                padding-bottom: 20px; 
-                height: 630px;
-            }
-            .navbar{
-                background-color: white ;
-                color: black ;
-            }
-            .navbar .nav-link{
-                color: black ;
-            }
-            .navbar .navbar-toggler-icon{
-                color: black ;
-            }
-            .navbar-brand{
-                color: black ;
-            }
-            .feature-card {
-                transition: transform 0.3s ease;
-            }
-            .feature-card:hover {
-                transform: translateY(-5px);
-            }
-            .testimonial-slide {
-                text-align: center;
-            }
-            .testimonial-slide p {
-                font-style: italic;
-            }
-            body{
-                overflow-x: hidden;
-            }
-            a{
-                text-decoration: none;
-            }
-            p{
-                color: black;
-            }
-            .title{
-                color: black;
-            }
-    </style>
-</head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Travel Hub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="features.html">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Attractions & Tours.html">Attractions & Tours</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="flight.html">Flights</a></li>
-                            <li><a class="dropdown-item" href="hotel.html">Hotels</a></li>
-                            <li><a class="dropdown-item" href="cars.html">Cars</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <ul class="nav navbar-nav navbar-right" style="list-style-type: none; display: flex; align-items: center; height: 50px;">
-                <li style="margin-right: 5px;">
-                    <a href="login.html" style="color: black; text-decoration: none; font-size: medium; display: flex; align-items: center; height: 100%;">
-                        <i class="fas fa-user-circle" style="margin-right: 5px; font-size: 24px;"></i> Login
-                    </a>
-                </li>
-                <li>
-                    <a href="signup.html" style="color: black; text-decoration: none; font-size: medium; display: flex; align-items: center; height: 100%;">
-                        <i class="fas fa-sign-out-alt" style="margin-right: 5px; font-size: 24px;"></i> SignUp
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <section class="bleu-section">
+    <?php include '../Header/header.php'; ?>
         <div class="container">
             <div class="title">Features</div>
             <div class="row justify-content-center">
@@ -139,7 +42,7 @@
                         </div>
                     </div>
                 </section>
-                <section  style="margin-top:-150px">
+                <!-- <section  style="margin-top:-150px">
                     <div class="mt-5">
                         <h3 style="text-align: center; margin: 20px auto;">Testimonials</h3>
                         <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -156,11 +59,10 @@
                                         <p><strong>- Jane Smith</strong></p>
                                     </div>
                                 </div>
-                                <!-- Add more testimonies here -->
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
                 <section>
                     <div class="mt-5">
                         <h3 style="color: black; text-align: center; padding-bottom: 0.5%;">Customer Reviews</h3>

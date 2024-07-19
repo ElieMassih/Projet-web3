@@ -1,40 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Hub</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-Ldh0NRiS6T37e8H3BnSJL9zoidBzxw/ndzIQj5O8G0w="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
-      integrity="sha256-Qe0a8GvL5Y2aO61qftZc/Mq7Mc9OPhq3tk4Ka8EomH8="
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
     <style>
-      html,
       body {
         height: 100%;
         margin: 0;
@@ -44,30 +11,6 @@
       body {
         display: flex;
         flex-direction: column;
-      }
-
-      .bleu-section {
-        background-image: url(./assets/anh.jpg);
-        background-size: cover;
-        width: 100%;
-        flex: 1;
-      }
-
-      .navbar {
-        background-color: transparent !important;
-        color: black !important;
-      }
-
-      .bleu-section .navbar-nav .nav-link {
-        color: black !important;
-      }
-
-      .navbar-toggler-icon {
-        color: black !important;
-      }
-
-      .navbar-brand {
-        color: black !important;
       }
 
       form {
@@ -137,103 +80,7 @@
   </head>
   <body>
     <section class="bleu-section">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html"
-                  >Travel Hub</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="features.html">Features</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Attractions & Tours.html"
-                  >Attractions & Tours</a
-                >
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  >Dropdown link</a
-                >
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="flight.html">Flights</a>
-                  </li>
-                  <li><a class="dropdown-item" href="hotel.html">Hotels</a></li>
-                  <li><a class="dropdown-item" href="cars.html">Cars</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <ul
-            class="nav navbar-nav navbar-right"
-            style="
-              list-style-type: none;
-              display: flex;
-              align-items: center;
-              height: 50px;
-            "
-          >
-            <li style="margin-right: 5px">
-              <a
-                href="login.html"
-                style="
-                  color: black;
-                  text-decoration: none;
-                  font-size: medium;
-                  display: flex;
-                  align-items: center;
-                  height: 100%;
-                "
-              >
-                <i
-                  class="fas fa-user-circle"
-                  style="margin-right: 5px; font-size: 24px"
-                ></i>
-                Login
-              </a>
-            </li>
-            <li>
-              <a
-                href="signup.html"
-                style="
-                  color: black;
-                  text-decoration: none;
-                  font-size: medium;
-                  display: flex;
-                  align-items: center;
-                  height: 100%;
-                "
-              >
-                <i
-                  class="fas fa-sign-out-alt"
-                  style="margin-right: 5px; font-size: 24px"
-                ></i>
-                SignUp
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <?php include '../Header/header.php'; ?>
       <section class="flights-section">
         <div class="container">
           <form>

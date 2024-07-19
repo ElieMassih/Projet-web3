@@ -32,7 +32,7 @@
                         <p>Discover our top hotel recommendations for your next trip.</p>
                     </div>
                     <div>
-                        <a href="../../hotel.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Explore Hotels</a>
+                        <a href="../Hotels/hotel.php" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Explore Hotels</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -41,7 +41,7 @@
                         <p>Find the perfect car rental for your journey with our wide selection of options.</p>
                     </div>
                     <div>
-                        <a href="../../cars.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Rent a Car</a>
+                        <a href="../Cars/cars.php" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Rent a Car</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -50,7 +50,7 @@
                         <p>Search for flights to your desired destination and book your next adventure.</p>
                     </div>
                     <div>
-                        <a href="../../flight.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Search Flights</a>
+                        <a href="../Flight/flight.php" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Search Flights</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -59,7 +59,7 @@
                         <p>Protect your trip with travel insurance. Learn more about our coverage options.</p>
                     </div>
                     <div>
-                        <a href="../../insurance.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Get Insured</a>
+                        <a href="../Insurance/insurance.php" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Get Insured</a>
                     </div>
                 </div>
             </div>
@@ -181,18 +181,18 @@
                         </div>
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">Products</h6>
-                            <p><a href="../../guest-house.html" class="text-reset">Guest House</a></p>
-                            <p><a href="../../hotel.html" class="text-reset">Hotels</a></p>
-                            <p><a href="../../flight.html" class="text-reset">Flights</a></p>
-                            <p><a href="../../cars.html" class="text-reset">Cars Hire</a></p>
+                            <p><a href="../Attractions/Attractions&Tours.php" class="text-reset">Attractions & Tours</a></p>
+                            <!-- <p><a href="../Houses/guest-house.php" class="text-reset">Guest House</a></p> -->
+                            <p><a href="../Hotels/hotel.php" class="text-reset">Hotels</a></p>
+                            <p><a href="../Flights/flight.php" class="text-reset">Flights</a></p>
+                            <p><a href="../Cars/cars.php" class="text-reset">Cars Hire</a></p>
                         </div>
-                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                            <p><a href="../../Attractions & Tours.html" class="text-reset">Attractions & Tours</a></p>
                             <p><a href="#!" class="text-reset">Settings</a></p>
                             <p><a href="#!" class="text-reset">Orders</a></p>
                             <p><a href="#!" class="text-reset">Help</a></p>
-                        </div>
+                        </div> -->
                         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                             <p><i class="fas fa-home me-3"></i>Lebanon</p>
