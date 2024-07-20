@@ -1,7 +1,13 @@
 <?php 
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
-}?>
+}
+
+require_once '../../modules/ModuleBooking.php';
+
+$moduleBooking = new ModuleBooking();
+$bookings = $moduleBooking->getBookings($_SESSION['userid']);
+?>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -14,6 +20,18 @@ if (session_status() == PHP_SESSION_NONE) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .profile-circle, .cart-icon {
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            display: none;
+        }
+        .profile-circle:hover .dropdown-menu,
+        .cart-icon:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -53,16 +71,26 @@ if (session_status() == PHP_SESSION_NONE) {
             </div>
 
             <ul class="nav navbar-nav navbar-right" style="list-style-type: none; display: flex; align-items: center; height: 50px;">
-            <?php if (isset($_SESSION['userid'])) { 
-                 $initial = strtoupper($_SESSION['fullname'][0]);
+                <?php if (isset($_SESSION['userid'])) { 
+                     $initial = strtoupper($_SESSION['fullname'][0]);
                  ?>
                  <li style="margin-right: 5px;">
-                    <div class="profile-circle" id="profileCircle" onclick="toggleDropdown()" style="background-color: gray; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                    <div class="profile-circle" id="profileCircle" onclick="toggleDropdown('profileDropdown')" style="background-color: gray; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px;">
                         <?php echo $initial; ?>
                     </div>
-                    <div class="dropdown-menu" id="profileDropdown" style="position: absolute; left: 90%">
-                            <a class="dropdown-item" href="../Login/logout.php">Sign Out</a>
-                        </div>
+                    <div class="dropdown-menu" id="profileDropdown" style="position: absolute; left: 90%;">
+                        <a class="dropdown-item" href="../Login/logout.php">Sign Out</a>
+                    </div>
+                </li>
+                <li style="margin-right: 5px;">
+                    <div class="cart-icon" id="cartIcon" onclick="toggleDropdown('cartDropdown')" style="color: white;">
+                        <i class="fas fa-shopping-cart" style="font-size: 24px;"></i>
+                    </div>
+                    <div class="dropdown-menu" id="cartDropdown" style="position: absolute; left: 80%; width: 300px;">
+                        <?php foreach ($bookings as $row) { ?>
+                            <a class="dropdown-item"><?php echo $row['Type'] ?> : <?php echo $row['BookingName'] ?> - <?php echo $row['BookingDescription'] ?> </a>
+                        <?php } ?>
+                    </div>
                 </li>
                 <?php } else { ?> 
                 <li style="margin-right: 5px;">
@@ -76,31 +104,36 @@ if (session_status() == PHP_SESSION_NONE) {
                     </a>
                 </li>
                 <?php } ?>
-            </ul>  
+            </ul>   
         </div>
     </nav>
     <script>
-        function toggleDropdown() {
-        var dropdown = document.getElementById("profileDropdown");
-        if (dropdown.style.display === "none" || dropdown.style.display === "") {
-            dropdown.style.display = "block";
-        } else {
-            dropdown.style.display = "none";
-        }
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "block";
+            } else {
+                dropdown.style.display = "none";
+            }
         }
 
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function (event) {
-        if (!event.target.matches(".profile-circle")) {
-            var dropdowns = document.getElementsByClassName("dropdown-menu");
-            for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.style.display === "block") {
-                openDropdown.style.display = "none";
-            }
-            }
+        function deleteBooking(bookingId) {
+            $.ajax({
+                url: '../../modules/ModuleBooking.php',
+                type: 'POST',
+                action: 'delete',
+                data: { bookingId: bookingId },
+                success: function(response) {
+                    var result = JSON.parse(response);
+                    if (result.status === 'success') {
+                        fetchBookings(); 
+                    } else {
+                        alert('Failed to delete booking');
+                    }
+                }
+            });
         }
-        };
     </script>
 </body>
 </html>
+

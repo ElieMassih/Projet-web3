@@ -1,8 +1,13 @@
 <html>
+    <style>
+        #top {
+            margin-top: 60px;
+        }
+    </style>
 <body>
     <section class="bleu-section1">
     <?php include '../Header/header.php'; ?>
-        <div class="container text-center">
+        <div class="container text-center" id="top">
             <div class="row">
                 <div class="col-4">Flights
                     <div><i class="fas fa-plane-departure"></i></div>
@@ -23,7 +28,7 @@
                         <p>Explore our destination guides to discover top travel spots around the world.</p>
                     </div>
                     <div>
-                        <a href="../../guides.html" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">View Guides</a>
+                        <a href="../Guides/guides.php" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">View Guides</a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
@@ -53,7 +58,7 @@
                         <a href="../Flight/flight.php" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Search Flights</a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
+                <!-- <div class="col-lg-2 col-md-4 col-sm-6 text-center d-flex flex-column justify-content-between">
                     <div>
                         <h3 style="margin-bottom: 20px;">Travel <br> Insurance</h3>
                         <p>Protect your trip with travel insurance. Learn more about our coverage options.</p>
@@ -61,7 +66,7 @@
                     <div>
                         <a href="../Insurance/insurance.php" class="btn btn-primary" style="margin-bottom: 20px; padding: 10px 20px;">Get Insured</a>
                     </div>
-                </div>
+                </div> -->
             </div>
                 <img src="../../assets/plane2.jpg" alt="projet" class="image">
                     <div class="container1">

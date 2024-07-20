@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+require_once '../../modules/ModuleHotel.php';
+
+$moduleHotel = new ModuleHotel();
+$hotels = $moduleHotel->getHotels();
+
+?>
 <html>
   <head>
     <style>
@@ -93,124 +99,57 @@
           <div class="text">Find the right hotel today</div>
         </div>
       </section>
-      <section class="search-form">
-        <div class="container2">
-          <h2 style="text-align: center; color: black">Hotel Booking</h2>
-          <div id="searchSection">
-            <form id="searchForm">
-              <div class="form-group">
-                <input type="text" class="form-control" id="destination" placeholder="Destination" required/>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="checkInDate" placeholder="Check-in Date" required/>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="checkOutDate" placeholder="Check-out Date" required/>
-              </div>
-              <div class="form-group">
-                <input type="number" class="form-control" id="guests" placeholder="Number of guests" required/>
-              </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <input type="number" class="form-control" id="priceRangeMin" placeholder="Min price (optional)"/>
-                </div>
-                <div class="form-group col-md-6">
-                  <input type="number" class="form-control" id="priceRangeMax" placeholder="Max price (optional)"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="amenities" placeholder="Amenities (optional)"/>
-              </div>
-              <button type="submit" class="btn btn-primary btn-block">Search</button>
-            </form>
-          </div>
-          <div id="results" style="display: none"></div>
-        </div>
-      </section>
       <section class="hotels-section">
         <div class="container">
           <h2 style="color: black; text-align: center; margin: 50px">Hotels</h2>
           <div class="row">
-            <!-- Hotel Card 1 -->
+             <?php foreach ($hotels as $row) {?>
             <div class="col-md-4">
               <div class="card hotel-card">
-                <img src="assets/hotel1.jpg" class="card-img-top hotel-img" alt="Hotel 1"/>
+                <img src="<?php echo $row['HotelPics'] ?>" class="card-img-top hotel-img" alt="<?php echo $row['HotelName'] ?>"/>
                 <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title">Sea Breeze Resort</h5>
-                  <p class="card-text hotel-description"> A cozy beachfront retreat with stunning ocean views.</p>
-                  <p class="hotel-price">$150/night</p>
-                  <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=150" class="btn btn-primary">Book Now</a>
+                  <h5 class="card-title hotel-title"><?php echo $row['HotelName'] ?></h5>
+                  <p class="card-text hotel-description"> <?php echo $row['HotelDescription'] ?></p>
+                  <p class="hotel-price">$<?php echo $row['PricePerNight'] ?>/night</p>
+                  <a href="#" class="btn btn-primary rent-now-btn"
+                  data-car-name="<?php echo $row['HotelName'] ?>"
+                  data-car-type="Hotel"
+                  data-car-description="$<?php echo $row['PricePerNight'] ?>"
+                  data-user-id="<?php echo $_SESSION['userid'] ?>">Book Now</a>
                 </div>
               </div>
             </div>
-            <!-- Hotel Card 2 -->
-            <div class="col-md-4">
-              <div class="card hotel-card">
-                <img src="assets/hotel2.jpg" class="card-img-top hotel-img" alt="Hotel 2"/>
-                <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title"> City Lights Hotel & Spa</h5>
-                  <p class="card-text hotel-description"> A luxurious urban escape in the heart of the city with panoramic skyline views.</p>
-                  <p class="hotel-price">$250/night</p>
-                  <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=250" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-            </div>
-            <!-- Hotel Card 3 -->
-            <div class="col-md-4">
-              <div class="card hotel-card">
-                <img src="assets/hotel3.jpg" class="card-img-top hotel-img" alt="Hotel 3"/>
-                <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title">Bellagio Hotel & Casino</h5>
-                  <p class="card-text hotel-description">Bellagio Las Vegas, enjoy a high caliber resort experience right on the Las Vegas .</p>
-                  <p class="hotel-price">$100/night</p>
-                  <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=100" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-            </div>
-            <!-- Hotel Card 4 -->
-            <div class="col-md-4">
-              <div class="card hotel-card">
-                <img src="assets/hotel4.jpg" class="card-img-top hotel-img" alt="Hotel 4"/>
-                <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title">LAUR HOTELS Experience</h5>
-                  <p class="card-text hotel-description">LAUR HOTELS Experience & Elegance is located along the beach of Altinkum.</p>
-                  <p class="hotel-price">$170/night</p>
-                  <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=170" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-            </div>
-            <!-- Hotel Card 5 -->
-            <div class="col-md-4">
-              <div class="card hotel-card">
-                <img src="assets/hotel5.jpg" class="card-img-top hotel-img" alt="Hotel 5"/>
-                <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title">Taj Hotels</h5>
-                  <p class="card-text hotel-description">Experience a haven of luxury and comfort.Nestled in a vibrant cityscape.</p>
-                  <p class="hotel-price">$70/night</p>
-                  <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=70" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-            </div>
-            <!-- Hotel Card 6 -->
-            <div class="col-md-4">
-              <div class="card hotel-card">
-                <img src="assets/hotel6.jpg" class="card-img-top hotel-img" alt="Hotel 6"/>
-                <div class="card-body hotel-info">
-                  <h5 class="card-title hotel-title">Virgin Hotels</h5>
-                  <p class="card-text hotel-description">Experience the epitome of luxury and sophistication at Virgin Hotels.</p>
-                  <p class="hotel-price">$300/night</p>
-                  <!-- Updated Book Now link with price as query parameter -->
-                  <a href="Hotel Booking.html?price=300" class="btn btn-primary">Book Now</a>
-                </div>
-              </div>
-            </div>
+            <?php } ?>
           </div>
         </div>
       </section>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+      $(document).ready(function() {
+          $('.rent-now-btn').on('click', function(e) {
+              e.preventDefault();
+
+              var add_params = {
+                  bookingName: $(this).data('car-name'),
+                  bookingType: $(this).data('car-type'),
+                  bookingDescription: $(this).data('car-description'),
+                  userId: $(this).data('user-id')
+              };
+
+              $.ajax({
+              type: "POST",
+              url: "../../modules/ModuleBooking.php",
+              data: {
+                action: "add",
+                params: add_params,
+              },
+              success: function (response) {
+                console.log(response);
+              },
+            });
+          });
+      });
+      </script>
   </body>
 </html>

@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+require_once '../../modules/ModuleCar.php';
+
+$moduleCar = new ModuleCar();
+$cars = $moduleCar->getCars();
+
+?>
 <html>
   <body>
     <style>
@@ -8,97 +14,63 @@
       .title {
         color: black !important;
       }
+      #cars {
+                margin-top: 70px;
+      }
     </style>
 <section class="bleu-section">
 <?php include '../Header/header.php'; ?>
       <!-- Car Rental Section -->
-      <div class="container">
+      <div class="container" id="cars">
         <div class="title">Explore Our Car Rental Options</div>
         <div class="row justify-content-center">
+          <?php foreach ($cars as $row) {?>
           <div class="col-md-3">
             <div class="card mb-3">
-              <img src="assets/toyota.jpg" class="card-img-top" alt="Car 1" />
+              <img src="<?php echo $row['CarPics'] ?>" class="card-img-top" alt="<?php echo $row['CarName'] ?>" />
               <div class="card-body">
-                <h5 class="card-title">Toyota Corolla</h5>
-                <p class="card-text">Type: Sedan</p>
-                <p class="card-text">Price: $50/day</p>
-                <a href="car.html" class="btn btn-primary">Rent Now</a>
+                <h5 class="card-title"><?php echo $row['CarName'] ?></h5>
+                <p class="card-text">Type: <?php echo $row['CarType'] ?></p>
+                <p class="card-text">Price: $<?php echo $row['PricePerDay'] ?>/day</p>
+                <a href="#" class="btn btn-primary rent-now-btn"
+                  data-car-name="<?php echo $row['CarName'] ?>"
+                  data-car-type="Car"
+                  data-car-description="$<?php echo $row['PricePerDay'] ?>"
+                  data-user-id="<?php echo $_SESSION['userid'] ?>">Rent Now</a>
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card mb-3">
-              <img src="assets/honda.jpg" class="card-img-top" alt="Car 2" />
-              <div class="card-body">
-                <h5 class="card-title">Honda Civic</h5>
-                <p class="card-text">Type: Sedan</p>
-                <p class="card-text">Price: $60/day</p>
-                <a href="car.html" class="btn btn-primary">Rent Now</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-3">
-              <img src="assets/ford.jpg" class="card-img-top" alt="Car 3" />
-              <div class="card-body">
-                <h5 class="card-title">Ford Mustang</h5>
-                <p class="card-text">Type: Sports Car</p>
-                <p class="card-text">Price: $80/day</p>
-                <a href="car.html" class="btn btn-primary">Rent Now</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-3">
-              <img
-                src="assets/chevrolet.jpg"
-                class="card-img-top"
-                alt="Car 4"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Chevrolet Suburban</h5>
-                <p class="card-text">Type: SUV</p>
-                <p class="card-text">Price: $100/day</p>
-                <a href="car.html" class="btn btn-primary">Rent Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Add more cars here -->
-          <div class="col-md-3">
-            <div class="card mb-3">
-              <img src="assets/tesla.jpg" class="card-img-top" alt="Car 5" />
-              <div class="card-body">
-                <h5 class="card-title">Tesla Model S</h5>
-                <p class="card-text">Type: Electric Sedan</p>
-                <p class="card-text">Price: $120/day</p>
-                <a href="car.html" class="btn btn-primary">Rent Now</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-3">
-              <img src="assets/bmw.jpg" class="card-img-top" alt="Car 6" />
-              <div class="card-body">
-                <h5 class="card-title">BMW X5</h5>
-                <p class="card-text">Type: Luxury SUV</p>
-                <p class="card-text">Price: $150/day</p>
-                <a href="car.html" class="btn btn-primary">Rent Now</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card mb-3">
-              <img src="assets/mercedes.jpg" class="card-img-top" alt="Car 7" />
-              <div class="card-body">
-                <h5 class="card-title">Mercedes-Benz E-Class</h5>
-                <p class="card-text">Type: Luxury Sedan</p>
-                <p class="card-text">Price: $140/day</p>
-                <a href="car.html" class="btn btn-primary">Rent Now</a>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+      $(document).ready(function() {
+          $('.rent-now-btn').on('click', function(e) {
+              e.preventDefault();
+
+              var add_params = {
+                  bookingName: $(this).data('car-name'),
+                  bookingType: $(this).data('car-type'),
+                  bookingDescription: $(this).data('car-description'),
+                  userId: $(this).data('user-id')
+              };
+
+              $.ajax({
+              type: "POST",
+              url: "../../modules/ModuleBooking.php",
+              data: {
+                action: "add",
+                params: add_params,
+              },
+              success: function (response) {
+                console.log(response);
+              },
+            });
+          });
+      });
+      </script>
   </body>
 </html>

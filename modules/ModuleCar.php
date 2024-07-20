@@ -51,7 +51,7 @@ class ModuleCar extends DBConnection
         $stmt->bindParam(":CarId", $carId, PDO::PARAM_STR);
         $stmt->bindParam(":CarName", $params["carName"], PDO::PARAM_STR);
         $stmt->bindParam(":CarType", $params["carType"], PDO::PARAM_STR);
-        $stmt->bindParam(":PricePerDay", $params["pricePerDay"], PDO::PARAM_STR);
+        $stmt->bindParam(":PricePerDay", $params["carPrice"], PDO::PARAM_STR);
         $stmt->bindParam(":CarPics", $params["carPics"], PDO::PARAM_STR);
 
         $stmt->execute();
@@ -65,7 +65,7 @@ class ModuleCar extends DBConnection
 
     function deleteCars($carId)
     {
-        $sql = 'DELETE FROM vars WHERE CarId = :CarId';
+        $sql = 'DELETE FROM cars WHERE CarId = :CarId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
@@ -94,7 +94,7 @@ class ModuleCar extends DBConnection
         $stmt->bindParam(":CarId", $params["carId"], PDO::PARAM_STR);
         $stmt->bindParam(":CarName", $params["carName"], PDO::PARAM_STR);
         $stmt->bindParam(":CarType", $params["carType"], PDO::PARAM_STR);
-        $stmt->bindParam(":PricePerDay", $params["pricePerDay"], PDO::PARAM_STR);
+        $stmt->bindParam(":PricePerDay", $params["carPrice"], PDO::PARAM_STR);
         $stmt->bindParam(":CarPics", $params["carPics"], PDO::PARAM_STR);
 
         $stmt->execute();
@@ -105,5 +105,22 @@ class ModuleCar extends DBConnection
 
         return true;
     }
+}
 
+$moduleCar = new ModuleCar();
+
+if (isset($_POST["action"]) && isset($_POST["params"])) { 
+    $action = $_POST["action"];
+    $params = $_POST["params"];
+
+
+    if ($action == "update") {
+        $result = $moduleCar->updateCars($params);
+    } elseif ($action == "add") {
+        $result = $moduleCar->addCars($params);
+    } elseif ($action == "delete") {
+        $result = $moduleCar->deleteCars($params);
+    }
+
+    echo json_encode(["success" => $result]);
 }

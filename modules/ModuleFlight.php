@@ -40,22 +40,20 @@ class ModuleFlight extends DBConnection
     function addFlights($params)
     {
         $sql = 'INSERT INTO flights 
-        (flights, AttractionName, AttractionLocation, AttractionDescription, AttractionRating, AttractionReviews, AttractionPrice, AttractionPics)
+        (FlightId, Destination, StartDate, EndDate, Price, FlightPics)
         VALUES
-        (:AttractionId, :AttractionName, :AttractionLocation, :AttractionDescription, :AttractionRating, :AttractionReviews, :AttractionPrice, :AttractionPics)';
+        (:FlightId, :Destination, :StartDate, :EndDate, :Price, :FlightPics)';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $attractionId = guidv4();
+        $flightId = guidv4();
 
-        $stmt->bindParam(":AttractionId", $attractionId, PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionName", $params["attractionName"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionLocation", $params["attractionLocation"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionDescription"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionRating"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionReviews"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPrice", $params["attractionPrice"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPics", $params["attractionPic"], PDO::PARAM_STR);
+        $stmt->bindParam(":FlightId", $flightId, PDO::PARAM_STR);
+        $stmt->bindParam(":Destination", $params["destination"], PDO::PARAM_STR);
+        $stmt->bindParam(":StartDate", $params["startDate"], PDO::PARAM_STR);
+        $stmt->bindParam(":EndDate", $params["endDate"], PDO::PARAM_STR);
+        $stmt->bindParam(":Price", $params["price"], PDO::PARAM_STR);
+        $stmt->bindParam(":FlightPics", $params["flightPics"], PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -66,13 +64,13 @@ class ModuleFlight extends DBConnection
         return true;
     }
 
-    function deleteFlights($attractionId)
+    function deleteFlights($flightId)
     {
-        $sql = 'DELETE FROM attractions WHERE AttractionId = :AttractionId';
+        $sql = 'DELETE FROM flights WHERE FlightId = :FlightId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $stmt->bindParam(":AttractionId", $attractionId, PDO::PARAM_STR);
+        $stmt->bindParam(":FlightId", $flightId, PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -85,26 +83,22 @@ class ModuleFlight extends DBConnection
 
     function updateFlights($params)
     {
-        $sql = 'UPDATE attractions 
-        SET AttractionName = :AttractionName,
-            AttractionLocation = :AttractionLocation,
-            AttractionDescription = :AttractionDescription,
-            AttractionRating = :AttractionRating,
-            AttractionReviews = :AttractionReviews,
-            AttractionPrice = :AttractionPrice,
-            AttractionPics = :AttractionPics
-        WHERE "AttractionId = :AttractionId';
+        $sql = 'UPDATE flights 
+        SET Destination = :Destination,
+            StartDate = :StartDate,
+            EndDate = :EndDate,
+            Price = :Price,
+            FlightPics = :FlightPics
+        WHERE FlightId = :FlightId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $stmt->bindParam(":AttractionId", $params["attractionId"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionName", $params["attractionName"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionLocation", $params["attractionLocation"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionDescription"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionRating", $params["attractionRating"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionReviews", $params["attractionReviews"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPrice", $params["attractionPrice"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPics", $params["attractionPics"], PDO::PARAM_STR);
+        $stmt->bindParam(":FlightId", $params["flightId"], PDO::PARAM_STR);
+        $stmt->bindParam(":Destination", $params["destination"], PDO::PARAM_STR);
+        $stmt->bindParam(":StartDate", $params["startDate"], PDO::PARAM_STR);
+        $stmt->bindParam(":EndDate", $params["endDate"], PDO::PARAM_STR);
+        $stmt->bindParam(":Price", $params["price"], PDO::PARAM_STR);
+        $stmt->bindParam(":FlightPics", $params["flightPics"], PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -114,5 +108,22 @@ class ModuleFlight extends DBConnection
 
         return true;
     }
+}
 
+$moduleFlight = new ModuleFlight();
+
+if (isset($_POST["action"]) && isset($_POST["params"])) { 
+    $action = $_POST["action"];
+    $params = $_POST["params"];
+
+
+    if ($action == "update") {
+        $result = $moduleFlight->updateFlights($params);
+    } elseif ($action == "add") {
+        $result = $moduleFlight->addFlights($params);
+    } elseif ($action == "delete") {
+        $result = $moduleFlight->deleteFlights($params);
+    }
+
+    echo json_encode(["success" => $result]);
 }

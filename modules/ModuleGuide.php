@@ -40,22 +40,17 @@ class ModuleGuide extends DBConnection
     function addGuides($params)
     {
         $sql = 'INSERT INTO guides 
-        (AttractionId, AttractionName, AttractionLocation, AttractionDescription, AttractionRating, AttractionReviews, AttractionPrice, AttractionPics)
+        (GuideId, GuideName, GuidePics)
         VALUES
-        (:AttractionId, :AttractionName, :AttractionLocation, :AttractionDescription, :AttractionRating, :AttractionReviews, :AttractionPrice, :AttractionPics)';
+        (:GuideId, :GuideName, :GuidePics)';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $attractionId = guidv4();
+        $guideId = guidv4();
 
-        $stmt->bindParam(":AttractionId", $attractionId, PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionName", $params["attractionName"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionLocation", $params["attractionLocation"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionDescription"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionRating"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionReviews"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPrice", $params["attractionPrice"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPics", $params["attractionPic"], PDO::PARAM_STR);
+        $stmt->bindParam(":GuideId", $guideId, PDO::PARAM_STR);
+        $stmt->bindParam(":GuideName", $params["guideName"], PDO::PARAM_STR);
+        $stmt->bindParam(":GuidePics", $params["guidePics"], PDO::PARAM_STR);;
 
         $stmt->execute();
 
@@ -66,13 +61,13 @@ class ModuleGuide extends DBConnection
         return true;
     }
 
-    function deleteGuides($attractionId)
+    function deleteGuides($params)
     {
-        $sql = 'DELETE FROM attractions WHERE AttractionId = :AttractionId';
+        $sql = 'DELETE FROM guides WHERE GuideId = :GuideId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $stmt->bindParam(":AttractionId", $attractionId, PDO::PARAM_STR);
+        $stmt->bindParam(":GuideId", $params, PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -85,26 +80,16 @@ class ModuleGuide extends DBConnection
 
     function updateGuides($params)
     {
-        $sql = 'UPDATE attractions 
-        SET AttractionName = :AttractionName,
-            AttractionLocation = :AttractionLocation,
-            AttractionDescription = :AttractionDescription,
-            AttractionRating = :AttractionRating,
-            AttractionReviews = :AttractionReviews,
-            AttractionPrice = :AttractionPrice,
-            AttractionPics = :AttractionPics
-        WHERE AttractionId = :AttractionId';
+        $sql = 'UPDATE guides 
+        SET GuideName = :GuideName,
+            GuidePics = :GuidePics
+        WHERE GuideId = :GuideId';
 
         $stmt = $this->sql_conn->prepare($sql);
 
-        $stmt->bindParam(":AttractionId", $params["attractionId"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionName", $params["attractionName"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionLocation", $params["attractionLocation"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionDescription", $params["attractionDescription"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionRating", $params["attractionRating"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionReviews", $params["attractionReviews"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPrice", $params["attractionPrice"], PDO::PARAM_STR);
-        $stmt->bindParam(":AttractionPics", $params["attractionPics"], PDO::PARAM_STR);
+        $stmt->bindParam(":GuideId", $params["guideId"], PDO::PARAM_STR);
+        $stmt->bindParam(":GuideName", $params["guideName"], PDO::PARAM_STR);
+        $stmt->bindParam(":GuidePics", $params["guidePics"], PDO::PARAM_STR);
 
         $stmt->execute();
 
@@ -114,5 +99,22 @@ class ModuleGuide extends DBConnection
 
         return true;
     }
+}
 
+$moduleGuide = new ModuleGuide();
+
+if (isset($_POST["action"]) && isset($_POST["params"])) { 
+    $action = $_POST["action"];
+    $params = $_POST["params"];
+
+
+    if ($action == "update") {
+        $result = $moduleGuide->updateGuides($params);
+    } elseif ($action == "add") {
+        $result = $moduleGuide->addGuides($params);
+    } elseif ($action == "delete") {
+        $result = $moduleGuide->deleteGuides($params);
+    }
+
+    echo json_encode(["success" => $result]);
 }

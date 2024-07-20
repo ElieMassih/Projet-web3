@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+require_once '../../modules/ModuleGuide.php';
+
+$moduleGuide = new ModuleGuide();
+$guides = $moduleGuide->getGuides();
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -14,11 +19,11 @@
             img{
                 height: 7cm;
             }
-            .bleu-section{
+            /* .bleu-section{
                 height: 5020px;
                 background-color: white !important;
                 overflow-x: hidden;
-            }
+            } */
             .navbar{
                 background-color: white !important;
                 color: black !important;
@@ -32,6 +37,10 @@
             .navbar-brand{
                 color: black !important;
             }
+
+            #countryCard {
+                margin-top: 50px;
+            }
             a{
                 text-decoration: none;
             }
@@ -39,389 +48,21 @@
     </head>
     <body>
         <section class="bleu-section">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.html">Travel Hub</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="features.html">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Attractions & Tours.html">Attractions & Tours</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="flight.html">Flights</a></li>
-                                    <li><a class="dropdown-item" href="hotel.html">Hotels</a></li>
-                                    <li><a class="dropdown-item" href="cars.html">Cars</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <ul class="nav navbar-nav navbar-right" style="list-style-type: none; display: flex; align-items: center; height: 50px;">
-                        <li style="margin-right: 5px;">
-                            <a href="login.html" style="color:black; text-decoration: none; font-size: medium; display: flex; align-items: center; height: 100%;">
-                                <i class="fas fa-user-circle" style="margin-right: 5px; font-size: 24px;"></i> Login
-                            </a>
-                        </li>
-                        <li>
-                            <a href="signup.html" style="color: black; text-decoration: none; font-size: medium; display: flex; align-items: center; height: 100%;">
-                                <i class="fas fa-sign-out-alt" style="margin-right: 5px; font-size: 24px;"></i> SignUp
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
+        <?php include '../Header/header.php'; ?>
+            <div class="row row-cols-1 row-cols-md-3 g-4" id="countryCard">
+                <?php
+                foreach($guides as $row) { 
+                ?>
+                <div class="col" id="<?php echo $row['GuideId']?>">
                     <a href="#"><div class="card h-10">
-                    <img src="assets/usa.jpg" class="card-img-top" alt="USA">
+                    <img src="<?php echo $row['GuidePics']?>" class="card-img-top" alt="<?php echo strtoupper($row['GuideName']) ?>">
                     <div class="card-body">
-                        <h5 class="card-title">United States</h5>
+                        <h5 class="card-title"><?php echo $row['GuideName'] ?></h5>
                         <p class="card-text">Destination flights</p>
                     </div>
                     </div></a>
                 </div>
-                <div class="col">
-                    <a href="#"><div class="card h-10">
-                    <img src="assets/uk.jpg" class="card-img-top" alt="UK">
-                    <div class="card-body">
-                        <h5 class="card-title">United Kingdon</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href="#"><div class="card h-10">
-                    <img src="assets/uae.jpg" class="card-img-top" alt="UAE">
-                    <div class="card-body">
-                        <h5 class="card-title">United Arab Emarites</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href="#"><div class="card h-10">
-                    <img src="assets/turkey.jpg" class="card-img-top" alt="TURKEY">
-                    <div class="card-body">
-                        <h5 class="card-title">Turkey</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href="#"><div class="card h-10">
-                    <img src="assets/thailand.jpg" class="card-img-top" alt="THAILAND">
-                    <div class="card-body">
-                        <h5 class="card-title">Thailand</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/syria.jpg" class="card-img-top" alt="SYRIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Syria</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/switzerland.jpg" class="card-img-top" alt="SWITZERLAND">
-                    <div class="card-body">
-                        <h5 class="card-title">Switzerland</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/sweden.jpg" class="card-img-top" alt="SWEEDEN">
-                    <div class="card-body">
-                        <h5 class="card-title">Sweeden</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/spain.jpg" class="card-img-top" alt="SPAIN">
-                    <div class="card-body">
-                        <h5 class="card-title">Spain</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/serbia.jpg" class="card-img-top" alt="SERBIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Serbia</h5>
-                        <p class="card-text">DEstination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/saudiarabia.jpg" class="card-img-top" alt="SAUDI ARABIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Saudi Arabia</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/russia.jpg" class="card-img-top" alt="RUSSIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Russia</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a href=""><div class="card h-10">
-                    <img src="assets/qatar.jpg" class="card-img-top" alt="QATAR">
-                    <div class="card-body">
-                        <h5 class="card-title">Qatar</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/portugal.jpg" class="card-img-top" alt="PORTUGAL">
-                    <div class="card-body">
-                        <h5 class="card-title">Portugal</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/nigeria.jpg" class="card-img-top" alt="NIGERIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Nigeria</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/netherlands.jpg" class="card-img-top" alt="NETHERLANDS">
-                    <div class="card-body">
-                        <h5 class="card-title">Netherlands</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/morroco.jpg" class="card-img-top" alt="MORROCO">
-                    <div class="card-body">
-                        <h5 class="card-title">Morroco</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/japan.jpg" class="card-img-top" alt="JAPAN">
-                    <div class="card-body">
-                        <h5 class="card-title">Japan</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/italy.jpg" class="card-img-top" alt="ITALY">
-                    <div class="card-body">
-                        <h5 class="card-title">Italy</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/iraq.jpg" class="card-img-top" alt="IRAQ">
-                    <div class="card-body">
-                        <h5 class="card-title">Iraq</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/hungary.jpg" class="card-img-top" alt="HUNGARY">
-                    <div class="card-body">
-                        <h5 class="card-title">Hungary</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/greece.jpg" class="card-img-top" alt="GREECE">
-                    <div class="card-body">
-                        <h5 class="card-title">Greece</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/germany.jpg" class="card-img-top" alt="GERMANY">
-                    <div class="card-body">
-                        <h5 class="card-title">Germany</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/georgia.jpg" class="card-img-top" alt="GEORGIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Georgia</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/france.jpg" class="card-img-top" alt="FRANCE">
-                    <div class="card-body">
-                        <h5 class="card-title">France</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/england.jpg" class="card-img-top" alt="ENGLAND">
-                    <div class="card-body">
-                        <h5 class="card-title">England</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/egypt.jpg" class="card-img-top" alt="EGYPT">
-                    <div class="card-body">
-                        <h5 class="card-title">Egypt</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/ecuador.jpg" class="card-img-top" alt="ECUADOR">
-                    <div class="card-body">
-                        <h5 class="card-title">Ecuador</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/denmark.jpg" class="card-img-top" alt="DENMARK">
-                    <div class="card-body">
-                        <h5 class="card-title">Denmark</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/columbia.jpg" class="card-img-top" alt="COLUMBIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Columbia</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/china.jpg" class="card-img-top" alt="CHINA">
-                    <div class="card-body">
-                        <h5 class="card-title">China</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/canada.jpg" class="card-img-top" alt="CANADA">
-                    <div class="card-body">
-                        <h5 class="card-title">Canada</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/brazil.jpg" class="card-img-top" alt="BRAZIL">
-                    <div class="card-body">
-                        <h5 class="card-title">Brazil</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/belgium.jpg" class="card-img-top" alt="BELGIUM">
-                    <div class="card-body">
-                        <h5 class="card-title">Belgium</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/bahrain.jpg" class="card-img-top" alt="BAHRAIN">
-                    <div class="card-body">
-                        <h5 class="card-title">Bahrain</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/australia.jpg" class="card-img-top" alt="AUSTRALIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Australia</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/argentina.jpg" class="card-img-top" alt="ARGENTINA">
-                    <div class="card-body">
-                        <h5 class="card-title">Argentina</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
-                <div class="col">
-                    <a><div class="card h-10">
-                    <img src="assets/algeria.jpg" class="card-img-top" alt="ALGERIA">
-                    <div class="card-body">
-                        <h5 class="card-title">Algeria</h5>
-                        <p class="card-text">Destination flights</p>
-                    </div>
-                    </div></a>
-                </div>
+                <?php } ?>
             </div>
         </section>
     </body>

@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<?php
+require_once '../../modules/ModuleFlight.php';
+
+$moduleFlight = new ModuleFlight();
+$flights = $moduleFlight->getFlights();
+?>
 <html lang="en">
   <head>
     <style>
@@ -83,136 +88,56 @@
     <?php include '../Header/header.php'; ?>
       <section class="flights-section">
         <div class="container">
-          <form>
-            <div class="title mb-8"><h2>Flights!</h2></div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="departure"
-                placeholder="Departure city or airport"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="destination"
-                placeholder="Destination city or airport"
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label
-                for="departure-date"
-                class="form-label"
-                style="text-align: left"
-                >Departure Date:</label
-              >
-              <input
-                type="date"
-                class="form-control"
-                id="departure-date"
-                required
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Search Flights
-            </button>
-          </form>
+            <div class="title mb-8"><h2>Explore Our Featured Destinations</h2></div>
+            <p>Discover amazing travel destinations around the world</p>
         </div>
       </section>
-      <section style="text-align: center">
-        <h2>Explore Our Featured Destinations</h2>
-        <p>Discover amazing travel destinations around the world</p>
-      </section>
+      <?php foreach ($flights as $row) {?>
+          <div class="col-md-3">
+            <div class="card mb-3">
+              <img src="<?php echo $row['FlightPics'] ?>" class="card-img-top" alt="<?php echo $row['Destination'] ?>" />
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $row['Destination'] ?></h5>
+                <p class="card-text">Start Date: <?php echo $row['StartDate'] ?></p>
+                <p class="card-text">End Date: <?php echo $row['EndDate'] ?></p>
+                <p class="card-text">Price: $<?php echo $row['Price'] ?></p>
+                <a href="#" class="btn btn-primary rent-now-btn"
+                  data-car-name="<?php echo $row['Destination'] ?>"
+                  data-car-type="Flight"
+                  data-car-description="$<?php echo $row['Price'] ?>"
+                  data-user-id="<?php echo $_SESSION['userid'] ?>">Book Now</a>
+              </div>
+            </div>
+          </div>
+          <?php } ?>
     </section>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      const cities = [
-        "Abu Dhabi",
-        "Amsterdam",
-        "Bangkok",
-        "Barcelona",
-        "Berlin",
-        "Cairo",
-        "Cape Town",
-        "Dubai",
-        "Florence",
-        "Hong Kong",
-        "Istanbul",
-        "Kyoto",
-        "Las Vegas",
-        "London",
-        "Los Angeles",
-        "Madrid",
-        "Miami",
-        "Moscow",
-        "New York City",
-        "Paris",
-        "Rio de Janeiro",
-        "Rome",
-        "San Francisco",
-        "Seoul",
-        "Shanghai",
-        "Singapore",
-        "Sydney",
-        "Tokyo",
-        "Toronto",
-        "Venice",
-        "Vienna",
-        "Zurich",
-      ];
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+      $(document).ready(function() {
+          $('.rent-now-btn').on('click', function(e) {
+              e.preventDefault();
 
-      // Get input elements
-      const departureInput = document.getElementById("departure");
-      const destinationInput = document.getElementById("destination");
+              var add_params = {
+                  bookingName: $(this).data('car-name'),
+                  bookingType: $(this).data('car-type'),
+                  bookingDescription: $(this).data('car-description'),
+                  userId: $(this).data('user-id')
+              };
 
-      // Event listener for input change
-      departureInput.addEventListener("input", function () {
-        filterCities(departureInput, "departure");
+              $.ajax({
+              type: "POST",
+              url: "../../modules/ModuleBooking.php",
+              data: {
+                action: "add",
+                params: add_params,
+              },
+              success: function (response) {
+                console.log(response);
+              },
+            });
+          });
       });
-
-      destinationInput.addEventListener("input", function () {
-        filterCities(destinationInput, "destination");
-      });
-
-      // Function to filter cities based on user input
-      function filterCities(input, type) {
-        const inputValue = input.value.toLowerCase();
-        const filteredCities = cities.filter((city) =>
-          city.toLowerCase().startsWith(inputValue)
-        );
-
-        const selectElement = document.createElement("select");
-        selectElement.setAttribute("class", "form-select");
-        selectElement.setAttribute("id", type);
-
-        const defaultOption = document.createElement("option");
-        defaultOption.textContent = `Select ${
-          type === "departure" ? "departure" : "destination"
-        }`;
-        selectElement.appendChild(defaultOption);
-
-        filteredCities.forEach((city) => {
-          const option = document.createElement("option");
-          option.value = city;
-          option.textContent = city;
-          selectElement.appendChild(option);
-        });
-
-        const existingSelect = document.getElementById(type);
-        if (existingSelect) {
-          existingSelect.replaceWith(selectElement);
-        } else {
-          input.parentNode.replaceChild(selectElement, input);
-        }
-      }
-    </script>
+      </script>
+  
   </body>
 </html>
